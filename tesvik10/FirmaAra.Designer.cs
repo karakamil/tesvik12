@@ -36,6 +36,7 @@ namespace tesvik10
             this.txtreferans = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,12 +44,13 @@ namespace tesvik10
             // 
             this.btnrfrnsara.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnrfrnsara.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnrfrnsara.Location = new System.Drawing.Point(459, 54);
+            this.btnrfrnsara.Location = new System.Drawing.Point(418, 70);
             this.btnrfrnsara.Name = "btnrfrnsara";
-            this.btnrfrnsara.Size = new System.Drawing.Size(93, 37);
+            this.btnrfrnsara.Size = new System.Drawing.Size(137, 37);
             this.btnrfrnsara.TabIndex = 89;
             this.btnrfrnsara.Text = "ARA";
             this.btnrfrnsara.UseVisualStyleBackColor = true;
+            this.btnrfrnsara.Click += new System.EventHandler(this.btnrfrnsara_Click);
             // 
             // dataGridView1
             // 
@@ -58,6 +60,7 @@ namespace tesvik10
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(543, 318);
             this.dataGridView1.TabIndex = 88;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // txtunvan
             // 
@@ -110,12 +113,24 @@ namespace tesvik10
             this.label1.TabIndex = 85;
             this.label1.Text = "FİRMA ARA";
             // 
-            // ReferansAra
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblid.ForeColor = System.Drawing.Color.White;
+            this.lblid.Location = new System.Drawing.Point(36, 14);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(17, 15);
+            this.lblid.TabIndex = 90;
+            this.lblid.Text = "id";
+            // 
+            // FirmaAra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(570, 450);
+            this.Controls.Add(this.lblid);
             this.Controls.Add(this.btnrfrnsara);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtunvan);
@@ -123,8 +138,9 @@ namespace tesvik10
             this.Controls.Add(this.txtreferans);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ReferansAra";
+            this.Name = "FirmaAra";
             this.Text = "ReferansAra";
+            this.Load += new System.EventHandler(this.FirmaAra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,5 +156,6 @@ namespace tesvik10
         private System.Windows.Forms.TextBox txtreferans;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblid;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace tesvik10
 {
@@ -14,5 +15,44 @@ namespace tesvik10
         {
             InitializeComponent();
         }
+        SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+
+        public void verilerigoster(string veriler)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(veriler, baglan);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            //verilerigoster("select * from Hizli_Firma_Kayit");
+
+        }
+
+        private void FirmaAra_Load(object sender, EventArgs e)
+        {
+
+            verilerigoster("select firmaid as ID,Firma_No AS NO,Firmakisaadi AS FİRMA_KÜNYE,Vn AS VNO,Refadsoyad AS REFERANS from Hizli_Firma_Kayit");
+        }
+
+        private void btnrfrnsara_Click(object sender, EventArgs e)
+        {
+            verilerigoster("select firmaid as ID,Firma_No AS NO,Firmakisaadi AS FİRMA_KÜNYE,Vn AS VNO,Refadsoyad AS REFERANS from Hizli_Firma_Kayit where Firmakisaadi like '%" + txtunvan.Text + "%' and Refadsoyad like '%" + txtreferans.Text + "%'");
+        }
+
+      
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+
+            int secilialan = dataGridView1.SelectedCells[0].RowIndex;
+            string firmaid = dataGridView1.Rows[secilialan].Cells[0].Value.ToString();
+            lblid.Text = firmaid.ToString().Trim();
+            programreferans.firmaid = lblid.Text.ToString().Trim();
+
+            this.Hide();
+            FirmaKayit fk = new FirmaKayit();
+            fk.Show();
+        }
+        
+        
+
     }
 }

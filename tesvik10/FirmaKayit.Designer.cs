@@ -29,21 +29,15 @@ namespace tesvik10
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnkaydet = new System.Windows.Forms.Button();
             this.chkbxpasif = new System.Windows.Forms.CheckBox();
-            this.lblsubeno = new System.Windows.Forms.Label();
+            this.lblfirmano = new System.Windows.Forms.Label();
             this.txtytkltelefon = new System.Windows.Forms.MaskedTextBox();
-            this.rctxadres = new System.Windows.Forms.RichTextBox();
-            this.txtilce = new System.Windows.Forms.TextBox();
-            this.txtil = new System.Windows.Forms.TextBox();
             this.txtvn = new System.Windows.Forms.TextBox();
             this.txtvd = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtkisaunvan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +46,7 @@ namespace tesvik10
             this.label5 = new System.Windows.Forms.Label();
             this.txtyetkili = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtytktel = new System.Windows.Forms.TextBox();
+            this.txtytkposta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtvdparola = new System.Windows.Forms.TextBox();
             this.txtvdkullanici = new System.Windows.Forms.TextBox();
@@ -60,24 +54,29 @@ namespace tesvik10
             this.label7 = new System.Windows.Forms.Label();
             this.txtvdsifre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtreferans = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtreftelefon = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.rctxfirmnot = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.cmbrefadsoyad = new System.Windows.Forms.ComboBox();
+            this.lblrefid = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnfirmabul = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnkaydet
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(395, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 37);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnkaydet.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnkaydet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnkaydet.Location = new System.Drawing.Point(389, 162);
+            this.btnkaydet.Name = "btnkaydet";
+            this.btnkaydet.Size = new System.Drawing.Size(93, 37);
+            this.btnkaydet.TabIndex = 104;
+            this.btnkaydet.Text = "KAYDET";
+            this.btnkaydet.UseVisualStyleBackColor = true;
+            this.btnkaydet.Click += new System.EventHandler(this.button1_Click);
             // 
             // chkbxpasif
             // 
@@ -91,16 +90,16 @@ namespace tesvik10
             this.chkbxpasif.Text = "PASİF";
             this.chkbxpasif.UseVisualStyleBackColor = true;
             // 
-            // lblsubeno
+            // lblfirmano
             // 
-            this.lblsubeno.AutoSize = true;
-            this.lblsubeno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblsubeno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblsubeno.Location = new System.Drawing.Point(134, 34);
-            this.lblsubeno.Name = "lblsubeno";
-            this.lblsubeno.Size = new System.Drawing.Size(11, 15);
-            this.lblsubeno.TabIndex = 95;
-            this.lblsubeno.Text = "-";
+            this.lblfirmano.AutoSize = true;
+            this.lblfirmano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblfirmano.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblfirmano.Location = new System.Drawing.Point(134, 34);
+            this.lblfirmano.Name = "lblfirmano";
+            this.lblfirmano.Size = new System.Drawing.Size(11, 15);
+            this.lblfirmano.TabIndex = 95;
+            this.lblfirmano.Text = "-";
             // 
             // txtytkltelefon
             // 
@@ -112,32 +111,6 @@ namespace tesvik10
             this.txtytkltelefon.Name = "txtytkltelefon";
             this.txtytkltelefon.Size = new System.Drawing.Size(233, 25);
             this.txtytkltelefon.TabIndex = 6;
-            // 
-            // rctxadres
-            // 
-            this.rctxadres.Location = new System.Drawing.Point(134, 247);
-            this.rctxadres.Name = "rctxadres";
-            this.rctxadres.Size = new System.Drawing.Size(233, 42);
-            this.rctxadres.TabIndex = 8;
-            this.rctxadres.Text = "";
-            // 
-            // txtilce
-            // 
-            this.txtilce.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtilce.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtilce.Location = new System.Drawing.Point(134, 316);
-            this.txtilce.Name = "txtilce";
-            this.txtilce.Size = new System.Drawing.Size(233, 23);
-            this.txtilce.TabIndex = 10;
-            // 
-            // txtil
-            // 
-            this.txtil.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtil.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtil.Location = new System.Drawing.Point(134, 291);
-            this.txtil.Name = "txtil";
-            this.txtil.Size = new System.Drawing.Size(233, 23);
-            this.txtil.TabIndex = 9;
             // 
             // txtvn
             // 
@@ -189,39 +162,6 @@ namespace tesvik10
             this.label17.Size = new System.Drawing.Size(64, 15);
             this.label17.TabIndex = 99;
             this.label17.Text = "VERGİ NO";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(99, 324);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(33, 15);
-            this.label16.TabIndex = 98;
-            this.label16.Text = "İLÇE";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(109, 299);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(17, 15);
-            this.label15.TabIndex = 97;
-            this.label15.Text = "İL";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(84, 274);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 15);
-            this.label14.TabIndex = 96;
-            this.label14.Text = "ADRES";
             // 
             // label11
             // 
@@ -305,14 +245,14 @@ namespace tesvik10
             this.label3.TabIndex = 108;
             this.label3.Text = "YETKİLİ BİLGİSİ";
             // 
-            // txtytktel
+            // txtytkposta
             // 
-            this.txtytktel.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtytktel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtytktel.Location = new System.Drawing.Point(134, 212);
-            this.txtytktel.Name = "txtytktel";
-            this.txtytktel.Size = new System.Drawing.Size(233, 23);
-            this.txtytktel.TabIndex = 7;
+            this.txtytkposta.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtytkposta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtytkposta.Location = new System.Drawing.Point(134, 212);
+            this.txtytkposta.Name = "txtytkposta";
+            this.txtytkposta.Size = new System.Drawing.Size(233, 23);
+            this.txtytkposta.TabIndex = 7;
             // 
             // label4
             // 
@@ -329,7 +269,7 @@ namespace tesvik10
             // 
             this.txtvdparola.BackColor = System.Drawing.Color.AntiqueWhite;
             this.txtvdparola.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdparola.Location = new System.Drawing.Point(134, 376);
+            this.txtvdparola.Location = new System.Drawing.Point(134, 275);
             this.txtvdparola.Name = "txtvdparola";
             this.txtvdparola.Size = new System.Drawing.Size(233, 23);
             this.txtvdparola.TabIndex = 12;
@@ -338,7 +278,7 @@ namespace tesvik10
             // 
             this.txtvdkullanici.BackColor = System.Drawing.Color.AntiqueWhite;
             this.txtvdkullanici.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdkullanici.Location = new System.Drawing.Point(134, 351);
+            this.txtvdkullanici.Location = new System.Drawing.Point(134, 250);
             this.txtvdkullanici.Name = "txtvdkullanici";
             this.txtvdkullanici.Size = new System.Drawing.Size(233, 23);
             this.txtvdkullanici.TabIndex = 11;
@@ -348,7 +288,7 @@ namespace tesvik10
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(62, 384);
+            this.label6.Location = new System.Drawing.Point(62, 283);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 15);
             this.label6.TabIndex = 114;
@@ -359,7 +299,7 @@ namespace tesvik10
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(45, 359);
+            this.label7.Location = new System.Drawing.Point(45, 258);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 15);
             this.label7.TabIndex = 113;
@@ -369,7 +309,7 @@ namespace tesvik10
             // 
             this.txtvdsifre.BackColor = System.Drawing.Color.AntiqueWhite;
             this.txtvdsifre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdsifre.Location = new System.Drawing.Point(134, 400);
+            this.txtvdsifre.Location = new System.Drawing.Point(134, 299);
             this.txtvdsifre.Name = "txtvdsifre";
             this.txtvdsifre.Size = new System.Drawing.Size(233, 23);
             this.txtvdsifre.TabIndex = 13;
@@ -379,27 +319,18 @@ namespace tesvik10
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(74, 408);
+            this.label8.Location = new System.Drawing.Point(74, 307);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 15);
             this.label8.TabIndex = 116;
             this.label8.Text = "VDSİFRE";
-            // 
-            // txtreferans
-            // 
-            this.txtreferans.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtreferans.Location = new System.Drawing.Point(134, 429);
-            this.txtreferans.Name = "txtreferans";
-            this.txtreferans.Size = new System.Drawing.Size(233, 23);
-            this.txtreferans.TabIndex = 14;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(16, 437);
+            this.label9.Location = new System.Drawing.Point(16, 336);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(116, 15);
             this.label9.TabIndex = 118;
@@ -410,7 +341,7 @@ namespace tesvik10
             this.txtreftelefon.BackColor = System.Drawing.Color.AntiqueWhite;
             this.txtreftelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtreftelefon.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtreftelefon.Location = new System.Drawing.Point(134, 454);
+            this.txtreftelefon.Location = new System.Drawing.Point(134, 353);
             this.txtreftelefon.Mask = "(999) 000-0000";
             this.txtreftelefon.Name = "txtreftelefon";
             this.txtreftelefon.Size = new System.Drawing.Size(233, 25);
@@ -421,7 +352,7 @@ namespace tesvik10
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(2, 464);
+            this.label10.Location = new System.Drawing.Point(2, 363);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 15);
             this.label10.TabIndex = 120;
@@ -429,7 +360,7 @@ namespace tesvik10
             // 
             // rctxfirmnot
             // 
-            this.rctxfirmnot.Location = new System.Drawing.Point(135, 485);
+            this.rctxfirmnot.Location = new System.Drawing.Point(135, 384);
             this.rctxfirmnot.Name = "rctxfirmnot";
             this.rctxfirmnot.Size = new System.Drawing.Size(382, 51);
             this.rctxfirmnot.TabIndex = 16;
@@ -440,11 +371,67 @@ namespace tesvik10
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(78, 506);
+            this.label12.Location = new System.Drawing.Point(78, 405);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(32, 15);
             this.label12.TabIndex = 122;
             this.label12.Text = "NOT";
+            // 
+            // cmbrefadsoyad
+            // 
+            this.cmbrefadsoyad.FormattingEnabled = true;
+            this.cmbrefadsoyad.Location = new System.Drawing.Point(134, 328);
+            this.cmbrefadsoyad.Name = "cmbrefadsoyad";
+            this.cmbrefadsoyad.Size = new System.Drawing.Size(233, 23);
+            this.cmbrefadsoyad.TabIndex = 14;
+            this.cmbrefadsoyad.SelectedValueChanged += new System.EventHandler(this.cmbrefadsoyad_SelectedValueChanged);
+            // 
+            // lblrefid
+            // 
+            this.lblrefid.AutoSize = true;
+            this.lblrefid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblrefid.ForeColor = System.Drawing.Color.Teal;
+            this.lblrefid.Location = new System.Drawing.Point(373, 336);
+            this.lblrefid.Name = "lblrefid";
+            this.lblrefid.Size = new System.Drawing.Size(31, 15);
+            this.lblrefid.TabIndex = 123;
+            this.lblrefid.Text = "refid";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(389, 212);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 37);
+            this.button1.TabIndex = 124;
+            this.button1.Text = "SİL";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnfirmabul
+            // 
+            this.btnfirmabul.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnfirmabul.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnfirmabul.Location = new System.Drawing.Point(389, 113);
+            this.btnfirmabul.Name = "btnfirmabul";
+            this.btnfirmabul.Size = new System.Drawing.Size(93, 37);
+            this.btnfirmabul.TabIndex = 125;
+            this.btnfirmabul.Text = "FİRMA BUL";
+            this.btnfirmabul.UseVisualStyleBackColor = true;
+            this.btnfirmabul.Click += new System.EventHandler(this.btnfirmabul_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button2.Location = new System.Drawing.Point(389, 66);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 37);
+            this.button2.TabIndex = 126;
+            this.button2.Text = "YENİ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FirmaKayit
             // 
@@ -452,11 +439,15 @@ namespace tesvik10
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(529, 548);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnfirmabul);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblrefid);
+            this.Controls.Add(this.cmbrefadsoyad);
             this.Controls.Add(this.rctxfirmnot);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtreftelefon);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtreferans);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtvdsifre);
             this.Controls.Add(this.label8);
@@ -464,27 +455,21 @@ namespace tesvik10
             this.Controls.Add(this.txtvdkullanici);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtytktel);
+            this.Controls.Add(this.txtytkposta);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtyetkili);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtfrmno);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnkaydet);
             this.Controls.Add(this.chkbxpasif);
-            this.Controls.Add(this.lblsubeno);
+            this.Controls.Add(this.lblfirmano);
             this.Controls.Add(this.txtytkltelefon);
-            this.Controls.Add(this.rctxadres);
-            this.Controls.Add(this.txtilce);
-            this.Controls.Add(this.txtil);
             this.Controls.Add(this.txtvn);
             this.Controls.Add(this.txtvd);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtkisaunvan);
             this.Controls.Add(this.label2);
@@ -499,21 +484,15 @@ namespace tesvik10
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnkaydet;
         private System.Windows.Forms.CheckBox chkbxpasif;
-        private System.Windows.Forms.Label lblsubeno;
+        private System.Windows.Forms.Label lblfirmano;
         private System.Windows.Forms.MaskedTextBox txtytkltelefon;
-        private System.Windows.Forms.RichTextBox rctxadres;
-        private System.Windows.Forms.TextBox txtilce;
-        private System.Windows.Forms.TextBox txtil;
         private System.Windows.Forms.TextBox txtvn;
         private System.Windows.Forms.TextBox txtvd;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtkisaunvan;
         private System.Windows.Forms.Label label2;
@@ -522,7 +501,7 @@ namespace tesvik10
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtyetkili;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtytktel;
+        private System.Windows.Forms.TextBox txtytkposta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtvdparola;
         private System.Windows.Forms.TextBox txtvdkullanici;
@@ -530,11 +509,15 @@ namespace tesvik10
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtvdsifre;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtreferans;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox txtreftelefon;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox rctxfirmnot;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbrefadsoyad;
+        private System.Windows.Forms.Label lblrefid;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnfirmabul;
+        private System.Windows.Forms.Button button2;
     }
 }
