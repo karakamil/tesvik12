@@ -1,0 +1,354 @@
+﻿
+namespace tesvik10
+{
+    partial class Referanslar
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblsubeno = new System.Windows.Forms.Label();
+            this.txtytkltelefon = new System.Windows.Forms.MaskedTextBox();
+            this.rctxtbnot = new System.Windows.Forms.RichTextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtkisaunvan = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkbxpasif = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // lblsubeno
+            // 
+            this.lblsubeno.AutoSize = true;
+            this.lblsubeno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblsubeno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblsubeno.Location = new System.Drawing.Point(128, 72);
+            this.lblsubeno.Name = "lblsubeno";
+            this.lblsubeno.Size = new System.Drawing.Size(11, 15);
+            this.lblsubeno.TabIndex = 60;
+            this.lblsubeno.Text = "-";
+            // 
+            // txtytkltelefon
+            // 
+            this.txtytkltelefon.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtytkltelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtytkltelefon.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtytkltelefon.Location = new System.Drawing.Point(112, 169);
+            this.txtytkltelefon.Mask = "(999) 000-0000";
+            this.txtytkltelefon.Name = "txtytkltelefon";
+            this.txtytkltelefon.Size = new System.Drawing.Size(233, 25);
+            this.txtytkltelefon.TabIndex = 4;
+            // 
+            // rctxtbnot
+            // 
+            this.rctxtbnot.Location = new System.Drawing.Point(112, 196);
+            this.rctxtbnot.Name = "rctxtbnot";
+            this.rctxtbnot.Size = new System.Drawing.Size(233, 42);
+            this.rctxtbnot.TabIndex = 5;
+            this.rctxtbnot.Text = "";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Location = new System.Drawing.Point(112, 265);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(233, 23);
+            this.textBox5.TabIndex = 7;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox6.Location = new System.Drawing.Point(112, 240);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(233, 23);
+            this.textBox6.TabIndex = 6;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox7.Location = new System.Drawing.Point(112, 144);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(233, 23);
+            this.textBox7.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(112, 119);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(233, 23);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(6, 72);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(93, 15);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "REFERANS NO";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(37, 179);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 15);
+            this.label18.TabIndex = 66;
+            this.label18.Text = "TELEFON";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(41, 152);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 15);
+            this.label17.TabIndex = 65;
+            this.label17.Text = "E-POSTA";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(66, 273);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(33, 15);
+            this.label16.TabIndex = 64;
+            this.label16.Text = "İLÇE";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(82, 248);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(17, 15);
+            this.label15.TabIndex = 63;
+            this.label15.Text = "İL";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(51, 223);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 15);
+            this.label14.TabIndex = 62;
+            this.label14.Text = "ADRES";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(8, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 15);
+            this.label11.TabIndex = 58;
+            this.label11.Text = "FİRMA ÜNVANI";
+            // 
+            // txtkisaunvan
+            // 
+            this.txtkisaunvan.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtkisaunvan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtkisaunvan.Location = new System.Drawing.Point(112, 94);
+            this.txtkisaunvan.Name = "txtkisaunvan";
+            this.txtkisaunvan.Size = new System.Drawing.Size(233, 23);
+            this.txtkisaunvan.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(27, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "ADI SOYADI";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.Location = new System.Drawing.Point(51, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 22);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "REFERANS KAYIT BİLGİLERİ";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(112, 290);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(233, 60);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(31, 335);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "NOTLAR: 1";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(112, 352);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(233, 65);
+            this.richTextBox2.TabIndex = 9;
+            this.richTextBox2.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(31, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 15);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "NOTLAR: 1";
+            // 
+            // chkbxpasif
+            // 
+            this.chkbxpasif.AutoSize = true;
+            this.chkbxpasif.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chkbxpasif.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.chkbxpasif.Location = new System.Drawing.Point(219, 70);
+            this.chkbxpasif.Name = "chkbxpasif";
+            this.chkbxpasif.Size = new System.Drawing.Size(61, 21);
+            this.chkbxpasif.TabIndex = 10;
+            this.chkbxpasif.Text = "PASİF";
+            this.chkbxpasif.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(6, 429);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 37);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "KAYDET";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // Referanslar
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(412, 478);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.chkbxpasif);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblsubeno);
+            this.Controls.Add(this.txtytkltelefon);
+            this.Controls.Add(this.rctxtbnot);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtkisaunvan);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "Referanslar";
+            this.Text = "Referanslar";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblsubeno;
+        private System.Windows.Forms.MaskedTextBox txtytkltelefon;
+        private System.Windows.Forms.RichTextBox rctxtbnot;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtkisaunvan;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkbxpasif;
+        private System.Windows.Forms.Button button1;
+    }
+}

@@ -1,0 +1,144 @@
+﻿
+namespace tesvik10
+{
+    partial class FirmaAra
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnrfrnsara = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtunvan = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtreferans = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnrfrnsara
+            // 
+            this.btnrfrnsara.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnrfrnsara.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnrfrnsara.Location = new System.Drawing.Point(459, 54);
+            this.btnrfrnsara.Name = "btnrfrnsara";
+            this.btnrfrnsara.Size = new System.Drawing.Size(93, 37);
+            this.btnrfrnsara.TabIndex = 89;
+            this.btnrfrnsara.Text = "ARA";
+            this.btnrfrnsara.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 120);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(543, 318);
+            this.dataGridView1.TabIndex = 88;
+            // 
+            // txtunvan
+            // 
+            this.txtunvan.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtunvan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtunvan.Location = new System.Drawing.Point(163, 50);
+            this.txtunvan.Name = "txtunvan";
+            this.txtunvan.Size = new System.Drawing.Size(233, 23);
+            this.txtunvan.TabIndex = 83;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(36, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(119, 15);
+            this.label11.TabIndex = 87;
+            this.label11.Text = "ÜNVANA GÖRE ARA";
+            // 
+            // txtreferans
+            // 
+            this.txtreferans.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtreferans.Location = new System.Drawing.Point(163, 79);
+            this.txtreferans.Name = "txtreferans";
+            this.txtreferans.Size = new System.Drawing.Size(233, 23);
+            this.txtreferans.TabIndex = 84;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 15);
+            this.label2.TabIndex = 86;
+            this.label2.Text = "REFERANSA GÖRE ARA";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.Location = new System.Drawing.Point(233, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 22);
+            this.label1.TabIndex = 85;
+            this.label1.Text = "FİRMA ARA";
+            // 
+            // ReferansAra
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(570, 450);
+            this.Controls.Add(this.btnrfrnsara);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtunvan);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtreferans);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "ReferansAra";
+            this.Text = "ReferansAra";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnrfrnsara;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtunvan;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtreferans;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+    }
+}
