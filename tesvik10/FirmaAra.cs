@@ -23,7 +23,7 @@ namespace tesvik10
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
-            //verilerigoster("select * from Hizli_Firma_Kayit");
+           
 
         }
 
