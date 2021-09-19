@@ -11,6 +11,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Support.UI;
+using System.Linq;
 
 namespace tesvik10
 {
@@ -36,6 +37,14 @@ namespace tesvik10
             daa.Fill(dss);
             dataGridView2.DataSource = dss.Tables[0];
         }
+        public void hizmetlistesinigoster(string hizmetlistesi)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(hizmetlistesi, baglan);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView3.DataSource = ds.Tables[0];
+        }
+
         private void ebildirge_Load(object sender, EventArgs e)
         {
             baglan.Open();
@@ -101,21 +110,25 @@ namespace tesvik10
         {
             // IWebDriver driver = new ChromeDriver();
 
-            var path = Application.StartupPath + "\\ebildirge";
+            var path = Application.StartupPath;
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddUserProfilePreference("download.default_directory", path);
             chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
             chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
             var driver = new ChromeDriver(path, chromeOptions);
 
-
             string v = txtebldv2guvenlik.Text.ToString().Trim();
             string klnc = lblsgkkullanici.Text.ToString().Trim();
             string ek = lblek.Text.ToString().Trim();
             string sistem = lblsistemsif.Text.ToString().Trim();
             string isyeri = lblisyerisif.Text.ToString().Trim();
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username="+klnc+"&isyeri_kod="+ek+"&password="+sistem+"&isyeri_sifre="+isyeri+"&isyeri_guvenlik=" + v + "");
-            driver.sayfayibekle();
+
+            //driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=" + klnc + "&isyeri_kod=" + ek + "&password=" + sistem + "&isyeri_sifre=" + isyeri + "&isyeri_guvenlik=" + v + "");
+
+            //driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=2&hizmet_yil_ay_index_bitis=3");
+
+            //string v = textBox1.Text.ToString().Trim();
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=12178849190&isyeri_kod=084&password=32978025&isyeri_sifre=70272627&isyeri_guvenlik=" + v + "");
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=2&hizmet_yil_ay_index_bitis=3");
 
             ReadOnlyCollection<IWebElement> tahakkukadet = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr"));
@@ -123,72 +136,79 @@ namespace tesvik10
             //ilk önce veri tabanındaki ilgili şubeye kayıtlı olan daha önce indirilmiş tahakkuk bilgileri siliniyor
             baglan.Open();
             int subeid = Convert.ToInt32(lblsubeid.Text);
-            SqlCommand thklarisil = new SqlCommand("delete from ilktahakkukbilgi where subeid='" + subeid + "' ",baglan);
+            SqlCommand thklarisil = new SqlCommand("delete from ilktahakkukbilgi where subeid='" + subeid + "' ", baglan);
             thklarisil.ExecuteNonQuery();
             baglan.Close();
             //tahakkuk bilgi datagirtview dolduruluyor 
             tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
 
-            //indirilen tahakkuklar için data set oluşturuloyr 
+            //indirilen tahakkuklar için data set oluşturuloyr
 
 
 
-            
+
+
 
 
             for (int i = 3; i < (tahakkukadet.Count) + 1; i++)
             {
-                ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
-                ReadOnlyCollection<IWebElement> hizmetay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[2]"));
-                ReadOnlyCollection<IWebElement> belgeturu = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[3]"));
-                ReadOnlyCollection<IWebElement> belgemahiyeti = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[4]"));
-                ReadOnlyCollection<IWebElement> kanunno = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[5]"));
-                ReadOnlyCollection<IWebElement> calisan = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[6]"));
-                ReadOnlyCollection<IWebElement> gun = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[7]"));
-                ReadOnlyCollection<IWebElement> spek = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[8]"));
+                try
+                {
+                    baglan.Open();
+                    SqlCommand thklarial = new SqlCommand("INSERT INTO [ilktahakkukbilgi] (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
 
-                IWebElement pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
+                    ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
+                    //*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[3]/td[1]
+                    ReadOnlyCollection<IWebElement> hizmetay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[2]"));
+                    ReadOnlyCollection<IWebElement> belgeturu = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[3]"));
+                    ReadOnlyCollection<IWebElement> belgemahiyeti = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[4]"));
+                    ReadOnlyCollection<IWebElement> kanunno = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[5]"));
+                    ReadOnlyCollection<IWebElement> calisan = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[6]"));
+                    ReadOnlyCollection<IWebElement> gun = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[7]"));
+                    ReadOnlyCollection<IWebElement> spek = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[8]"));
 
-                baglan.Open();
-                SqlCommand thklarial = new SqlCommand("insert into [ilktahakkukbilgi] (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
+                    IWebElement pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
 
-                thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
-                thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
-                thklarial.Parameters.AddWithValue("@donmay", donemay);
-                thklarial.Parameters.AddWithValue("@hizmetay", hizmetay);
-                thklarial.Parameters.AddWithValue("@bturu", belgeturu);
-                thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti);
-                thklarial.Parameters.AddWithValue("@kanunno", kanunno);
-                thklarial.Parameters.AddWithValue("@calisan", calisan);
-                thklarial.Parameters.AddWithValue("@gun", gun);
-                string spekk = spek.ToString().Substring(0, spek.ToString().Length - 3);
-                thklarial.Parameters.AddWithValue("@spk", spekk);
-                thklarial.Parameters.AddWithValue("@pdf", pdf);
 
-                pdf.Click();
-                thklarial.ExecuteNonQuery();
-                baglan.Close();
+
+                    // thklarial.Parameters.AddWithValue("@hizmetay", (hizmetay.ToString().Trim().Substring(0,hizmetay+7);
+
+
+
+                    thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
+                    thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
+                    thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text);
+                    thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text);
+                    thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text);
+                    thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text);
+                    thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text);
+                    thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text);
+                    thklarial.Parameters.AddWithValue("@gun", gun.First().Text);
+                    string spekk = spek.ToString().Substring(0, spek.First().Text.ToString().Length - 3);
+                    thklarial.Parameters.AddWithValue("@spk", spekk);
+                    //thklarial.Parameters.AddWithValue("@pdf", pdf.First().Text);
+
+                    pdf.Click();
+                    baglan.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
             }
-            
-            
+
+
             tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
         }
-    }
-    public static class Extensions
-    {
-        public static void sayfayibekle(this IWebDriver driver)
+
+        private void tb6sgkisyeribilgi_Click(object sender, EventArgs e)
         {
-            try
-            {
-                IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor)driver;
-                WebDriverWait webDriverWait = new WebDriverWait(driver, timeout: new TimeSpan(hours: 0, minutes: 0, seconds: 15));
-                webDriverWait.Until<bool>((IWebDriver x) => javaScriptExecutor.ExecuteScript("return document.readyState").Equals("complate"));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Sayfa Zaman Aşımına Uğradı, İnternet Bağlantısı Yavaş");
-                throw;
-            }
+
+            int subeid = Convert.ToInt32(lblsubeid.Text);
+            hizmetlistesinigoster("select * from Hizmet_Listesi Where subeid="+subeid+"");
         }
     }
+    
 }

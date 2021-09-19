@@ -45,6 +45,7 @@ namespace tesvik10
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -56,7 +57,7 @@ namespace tesvik10
             this.lblsubeid = new System.Windows.Forms.Label();
             this.txtebldv2guvenlik = new System.Windows.Forms.TextBox();
             this.btnthkkal = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -218,6 +219,7 @@ namespace tesvik10
             this.tb6sgkisyeribilgi.SelectedIndex = 0;
             this.tb6sgkisyeribilgi.Size = new System.Drawing.Size(939, 290);
             this.tb6sgkisyeribilgi.TabIndex = 34;
+            this.tb6sgkisyeribilgi.Click += new System.EventHandler(this.tb6sgkisyeribilgi_Click);
             // 
             // tabPage1
             // 
@@ -249,6 +251,15 @@ namespace tesvik10
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "APHB Liste";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(8, 6);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 25;
+            this.dataGridView3.Size = new System.Drawing.Size(917, 250);
+            this.dataGridView3.TabIndex = 34;
             // 
             // tabPage3
             // 
@@ -355,14 +366,14 @@ namespace tesvik10
             this.btnthkkal.UseVisualStyleBackColor = false;
             this.btnthkkal.Click += new System.EventHandler(this.btnthkkal_Click);
             // 
-            // dataGridView3
+            // listBox1
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(8, 6);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(917, 250);
-            this.dataGridView3.TabIndex = 34;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(801, 58);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 94);
+            this.listBox1.TabIndex = 43;
             // 
             // ebildirge
             // 
@@ -370,6 +381,7 @@ namespace tesvik10
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(963, 531);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnthkkal);
             this.Controls.Add(this.txtebldv2guvenlik);
             this.Controls.Add(this.lblsubeid);
@@ -429,5 +441,6 @@ namespace tesvik10
         private System.Windows.Forms.Button btnthkkal;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
