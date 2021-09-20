@@ -17,8 +17,7 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-        //SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
-        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
+        SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
 
         private void FirmaKayit_Load(object sender, EventArgs e)
         {
@@ -68,10 +67,11 @@ namespace tesvik10
         {
             baglan.Open();
             string id = lblfirmano.Text;
+            string durum = (chkbxpasif.Checked = true) ? "Pasif" : "Aktif";
             if (lblfirmano.Text== "")
             {
-
-                SQLiteCommand ekle = new SQLiteCommand("Insert Into Hizli_Firma_Kayit(Firma_No,Firmakisaadi,Vd,Vn,Yetkiliadsoyad,Telefon,e_posta,Refid,Refadsoyad,Reftelefon,VdKullanici,VdParola,VdSifre,FirmaNot,aktifpasif) values ('" + txtfrmno.Text + "','" + txtkisaunvan.Text + "','" + txtvd.Text + "','" + txtvn.Text + "','" + txtyetkili.Text + "','" + txtytkltelefon.Text + "','" + txtytkposta.Text + "','" + lblrefid.Text + "','" + cmbrefadsoyad.Text + "','" + txtreftelefon.Text + "','" + txtvdkullanici.Text + "','" + txtvdparola.Text + "','" + txtvdsifre.Text + "','" + rctxfirmnot.Text + "','" + chkbxpasif.Text + "')", baglan);
+                
+                SQLiteCommand ekle = new SQLiteCommand("Insert Into Hizli_Firma_Kayit(Firma_No,Firmakisaadi,Vd,Vn,Yetkiliadsoyad,Telefon,e_posta,Refid,Refadsoyad,Reftelefon,VdKullanici,VdParola,VdSifre,FirmaNot,aktifpasif) values ('" + txtfrmno.Text + "','" + txtkisaunvan.Text + "','" + txtvd.Text + "','" + txtvn.Text + "','" + txtyetkili.Text + "','" + txtytkltelefon.Text + "','" + txtytkposta.Text + "','" + lblrefid.Text + "','" + cmbrefadsoyad.Text + "','" + txtreftelefon.Text + "','" + txtvdkullanici.Text + "','" + txtvdparola.Text + "','" + txtvdsifre.Text + "','" + rctxfirmnot.Text + "','" +  durum + "')", baglan);
                 ekle.ExecuteNonQuery();
                 
                 MessageBox.Show("Kayıt Başarılı");
@@ -80,7 +80,7 @@ namespace tesvik10
             {
 
                 //int firmaid = Convert.ToInt32(lblfirmano.Text);
-                SQLiteCommand guncelle = new SQLiteCommand("update Hizli_Firma_Kayit set Firma_No='" + txtfrmno.Text + "',Firmakisaadi='" + txtkisaunvan.Text + "',Vd='" + txtvd.Text + "',Vn='" + txtvn.Text + "',Yetkiliadsoyad='" + txtyetkili.Text + "',Telefon='" + txtytkltelefon.Text + "',e_posta='" + txtytkposta.Text + "',Refid='" + lblrefid.Text + "',Refadsoyad='" + cmbrefadsoyad.Text + "',Reftelefon='" + txtreftelefon.Text + "',VdKullanici='" + txtvdkullanici.Text + "',VdParola='" + txtvdparola.Text + "',VdSifre='" + txtvdsifre.Text + "',FirmaNot='" + rctxfirmnot.Text + "',aktifpasif='" + chkbxpasif.Text + "' where firmaid =" + lblfirmano.Text + "", baglan);
+                SQLiteCommand guncelle = new SQLiteCommand("update Hizli_Firma_Kayit set Firma_No='" + txtfrmno.Text + "',Firmakisaadi='" + txtkisaunvan.Text + "',Vd='" + txtvd.Text + "',Vn='" + txtvn.Text + "',Yetkiliadsoyad='" + txtyetkili.Text + "',Telefon='" + txtytkltelefon.Text + "',e_posta='" + txtytkposta.Text + "',Refid='" + lblrefid.Text + "',Refadsoyad='" + cmbrefadsoyad.Text + "',Reftelefon='" + txtreftelefon.Text + "',VdKullanici='" + txtvdkullanici.Text + "',VdParola='" + txtvdparola.Text + "',VdSifre='" + txtvdsifre.Text + "',FirmaNot='" + rctxfirmnot.Text + "',aktifpasif='" + durum + "' where firmaid =" + lblfirmano.Text + "", baglan);
                 guncelle.ExecuteNonQuery();
 
                 MessageBox.Show("Firma Bilgileri Güncellendi");
@@ -111,8 +111,8 @@ namespace tesvik10
                 if (DialogResult == DialogResult.Yes)
             {
                 baglan.Open();
-                int id = Convert.ToInt32(lblfirmano.Text.Trim());
-                SQLiteCommand komut = new SQLiteCommand("Delete from Hizli_Firma_Kayit where firmaid =(" + id + ")", baglan);
+                int firmaid = Convert.ToInt32(lblfirmano.Text.Trim());
+                SQLiteCommand komut = new SQLiteCommand("Delete from Hizli_Firma_Kayit where firmaid =(" + firmaid + ")", baglan);
                 komut.ExecuteNonQuery();
                 baglan.Close();
                 formutemize();
@@ -136,6 +136,8 @@ namespace tesvik10
             txtvdparola.Text = "";
             txtvdsifre.Text =  "";
             rctxfirmnot.Text = "";
+            chkbxpasif.Checked = false;
+
 
             FirmaAra frm = new FirmaAra();
             frm.Show();

@@ -30,6 +30,7 @@ namespace tesvik10
         private void InitializeComponent()
         {
             this.grpbxfirmabilgileri = new System.Windows.Forms.GroupBox();
+            this.btnaphlistele = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -57,7 +58,6 @@ namespace tesvik10
             this.lblsubeid = new System.Windows.Forms.Label();
             this.txtebldv2guvenlik = new System.Windows.Forms.TextBox();
             this.btnthkkal = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,6 +71,7 @@ namespace tesvik10
             // 
             // grpbxfirmabilgileri
             // 
+            this.grpbxfirmabilgileri.Controls.Add(this.btnaphlistele);
             this.grpbxfirmabilgileri.Controls.Add(this.label1);
             this.grpbxfirmabilgileri.Controls.Add(this.pictureBox1);
             this.grpbxfirmabilgileri.Controls.Add(this.comboBox1);
@@ -86,6 +87,19 @@ namespace tesvik10
             this.grpbxfirmabilgileri.TabIndex = 32;
             this.grpbxfirmabilgileri.TabStop = false;
             this.grpbxfirmabilgileri.Text = "FİRMA BİLGİLERİ";
+            // 
+            // btnaphlistele
+            // 
+            this.btnaphlistele.BackColor = System.Drawing.Color.Salmon;
+            this.btnaphlistele.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnaphlistele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnaphlistele.Location = new System.Drawing.Point(748, 0);
+            this.btnaphlistele.Name = "btnaphlistele";
+            this.btnaphlistele.Size = new System.Drawing.Size(177, 27);
+            this.btnaphlistele.TabIndex = 44;
+            this.btnaphlistele.Text = "APHB LİSTELE";
+            this.btnaphlistele.UseVisualStyleBackColor = false;
+            this.btnaphlistele.Click += new System.EventHandler(this.btnaphlistele_Click);
             // 
             // label1
             // 
@@ -366,22 +380,12 @@ namespace tesvik10
             this.btnthkkal.UseVisualStyleBackColor = false;
             this.btnthkkal.Click += new System.EventHandler(this.btnthkkal_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(801, 58);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 94);
-            this.listBox1.TabIndex = 43;
-            // 
             // ebildirge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(963, 531);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnthkkal);
             this.Controls.Add(this.txtebldv2guvenlik);
             this.Controls.Add(this.lblsubeid);
@@ -441,6 +445,6 @@ namespace tesvik10
         private System.Windows.Forms.Button btnthkkal;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnaphlistele;
     }
 }

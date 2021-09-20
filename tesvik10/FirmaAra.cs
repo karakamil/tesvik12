@@ -16,7 +16,7 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
+        SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
 
         public void verilerigoster(string veriler)
         {

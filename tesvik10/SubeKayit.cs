@@ -16,9 +16,7 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-
-        //SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
-        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
+        SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
 
         public void verilerigoster(string veriler)
         {
@@ -62,7 +60,7 @@ namespace tesvik10
             baglan.Close();
 
         }
-
+    
         private void button1_Click(object sender, EventArgs e)
         {
             lblfirmano.Text = "-";
