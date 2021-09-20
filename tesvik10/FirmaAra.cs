@@ -52,8 +52,8 @@ namespace tesvik10
             FirmaKayit fk = new FirmaKayit();
             fk.Show();
         }
-        
-        
+
+
 
     }
 }

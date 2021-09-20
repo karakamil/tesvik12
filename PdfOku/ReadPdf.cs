@@ -102,7 +102,7 @@ namespace PdfOku
                 {
                     ++num2;
                     sqlCommand.CommandText = "Insert Into HizmetListesi (KurumID,Year,Month,SgkNo,Ad,Soyad,IlkSoyad,Ucret,Ikramiye," +
-                                             "Gun,Eksik_Gun,GGun,CGun,Egs,Icn,Meslek_Kodu,Kanun_No,Belge_Cesidi,Belge_Turu,OnayBekleyen,Mahiyet,UCG,subeid,firmaid,personelid,firmPersid)VALUES (@KURUMID,@YEAR,@MONTH,@SGKNO,@AD,@SOYAD,@ILKSOYAD,@UCRET,@IKRAMIYE,@GUN,@EKSIK_GUN,@GGUN,@CGUN,@EGS,@ICN,@MESLEK_KODU,@KANUN_NO,@BELGE_CESIDI,@BELGETURU,@ONAYBEKLEYEN,@MAHIYET,@UCG,@subid,@firmaid,@Persid,@firmPersid)";
+                                             "Gun,Eksik_Gun,GGun,CGun,Egs,Icn,Meslek_Kodu,Kanun_No,Belge_Cesidi,Belge_Turu,OnayBekleyen,Mahiyet,UCG,subeid,firmaid,personelid,firmPersid,Donem)VALUES (@KURUMID,@YEAR,@MONTH,@SGKNO,@AD,@SOYAD,@ILKSOYAD,@UCRET,@IKRAMIYE,@GUN,@EKSIK_GUN,@GGUN,@CGUN,@EGS,@ICN,@MESLEK_KODU,@KANUN_NO,@BELGE_CESIDI,@BELGETURU,@ONAYBEKLEYEN,@MAHIYET,@UCG,@subid,@firmaid,@Persid,@firmPersid,@DONEM)";
                     sqlCommand.Parameters.Clear();
                     sqlCommand.Parameters.AddWithValue("@KURUMID", (object)1);
                     //sqlCommand.Parameters.AddWithValue("@YEAR", (object)Convert.ToInt32(pdfHizmetListesi.Donem.Split('/')[0].ToString().Trim()));
@@ -142,7 +142,7 @@ namespace PdfOku
                     string tcn= pdfHizmetListesi.SgkNo.Trim();
                     sqlCommand.Parameters.AddWithValue("@Persid", yill + "" + ayy + "" + tcn);
                     sqlCommand.Parameters.AddWithValue("@firmPersid", firmid + "" + subid + "" + yill + "" + ayy + "" + tcn);
-
+                    sqlCommand.Parameters.AddWithValue("@DONEM", (object)(pdfHizmetListesi.Donem.ToString().Trim()));
 
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.ExecuteNonQuery();

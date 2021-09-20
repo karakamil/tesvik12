@@ -47,6 +47,12 @@ namespace tesvik10
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView3.DataSource = ds.Tables[0];
+            dataGridView3.Columns["Ucret"].DefaultCellStyle.Format = "N2";
+            dataGridView3.Columns["Ikramiye"].DefaultCellStyle.Format = "N2";
+            dataGridView3.Columns["Ucret"].DefaultCellStyle.Alignment= DataGridViewContentAlignment.MiddleRight;
+            dataGridView3.Columns["Ikramiye"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView3.AutoResizeColumns();
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void ebildirge_Load(object sender, EventArgs e)
