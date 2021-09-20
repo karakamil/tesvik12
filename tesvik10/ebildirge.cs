@@ -12,6 +12,8 @@ using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Support.UI;
 using System.Linq;
+using System.Data.SQLite;
+
 
 namespace tesvik10
 {
@@ -21,25 +23,25 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-        SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
-
+        //   SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
         public void verilerilistele(string veriler)
         {
-            SqlDataAdapter da = new SqlDataAdapter(veriler, baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(veriler, baglan);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
         }
         public void tahakkuklarigoster(string tahakkuklar)
         {
-            SqlDataAdapter daa = new SqlDataAdapter(tahakkuklar, baglan);
+            SQLiteDataAdapter daa = new SQLiteDataAdapter(tahakkuklar, baglan);
             DataSet dss = new DataSet();
             daa.Fill(dss);
             dataGridView2.DataSource = dss.Tables[0];
         }
         public void hizmetlistesinigoster(string hizmetlistesi)
         {
-            SqlDataAdapter da = new SqlDataAdapter(hizmetlistesi, baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(hizmetlistesi, baglan);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView3.DataSource = ds.Tables[0];
@@ -48,8 +50,8 @@ namespace tesvik10
         private void ebildirge_Load(object sender, EventArgs e)
         {
             baglan.Open();
-            SqlCommand combobx = new SqlCommand("select * From Hizli_Firma_Kayit",baglan);//  where aktifpasif like'Aktif'
-            SqlDataReader dr = combobx.ExecuteReader();
+            SQLiteCommand combobx = new SQLiteCommand("select * From Hizli_Firma_Kayit",baglan);//  where aktifpasif like'Aktif'
+            SQLiteDataReader dr = combobx.ExecuteReader();
             while (dr.Read())
             {
                 comboBox1.Items.Add(dr[2]);
@@ -61,8 +63,8 @@ namespace tesvik10
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             baglan.Open();
-            SqlCommand frm = new SqlCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '"+comboBox1.Text.ToString()+"'", baglan);
-            SqlDataReader da = frm.ExecuteReader();
+            SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '"+comboBox1.Text.ToString()+"'", baglan);
+            SQLiteDataReader da = frm.ExecuteReader();
             while (da.Read())
             {
                 lblfirmano.Text = (da[0].ToString().Trim());
@@ -108,6 +110,7 @@ namespace tesvik10
 
         private void btnthkkal_Click(object sender, EventArgs e)
         {
+
             // IWebDriver driver = new ChromeDriver();
 
             var path = Application.StartupPath;
@@ -133,74 +136,69 @@ namespace tesvik10
 
             ReadOnlyCollection<IWebElement> tahakkukadet = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr"));
 
-            //ilk önce veri tabanındaki ilgili şubeye kayıtlı olan daha önce indirilmiş tahakkuk bilgileri siliniyor
-            baglan.Open();
-            int subeid = Convert.ToInt32(lblsubeid.Text);
-            SqlCommand thklarisil = new SqlCommand("delete from ilktahakkukbilgi where subeid='" + subeid + "' ", baglan);
-            thklarisil.ExecuteNonQuery();
-            baglan.Close();
-            //tahakkuk bilgi datagirtview dolduruluyor 
-            tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
+            ////ilk önce veri tabanındaki ilgili şubeye kayıtlı olan daha önce indirilmiş tahakkuk bilgileri siliniyor
+            //baglan.Open();
+            //int subeid = Convert.ToInt32(lblsubeid.Text);
+            //SqlCommand thklarisil = new SqlCommand("delete from ilktahakkukbilgi where subeid='" + subeid + "' ", baglan);
+            //thklarisil.ExecuteNonQuery();
+            //baglan.Close();
+            ////tahakkuk bilgi datagirtview dolduruluyor 
+            //tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
 
             //indirilen tahakkuklar için data set oluşturuloyr
 
 
-
-
-
-
-
             for (int i = 3; i < (tahakkukadet.Count) + 1; i++)
             {
-                try
-                {
-                    baglan.Open();
-                    SqlCommand thklarial = new SqlCommand("INSERT INTO [ilktahakkukbilgi] (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
 
-                    ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
-                    //*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[3]/td[1]
-                    ReadOnlyCollection<IWebElement> hizmetay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[2]"));
-                    ReadOnlyCollection<IWebElement> belgeturu = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[3]"));
-                    ReadOnlyCollection<IWebElement> belgemahiyeti = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[4]"));
-                    ReadOnlyCollection<IWebElement> kanunno = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[5]"));
-                    ReadOnlyCollection<IWebElement> calisan = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[6]"));
-                    ReadOnlyCollection<IWebElement> gun = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[7]"));
-                    ReadOnlyCollection<IWebElement> spek = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[8]"));
+                //baglan.Open();
+                //SQLiteCommand thklarial = new SQLiteCommand("INSERT INTO [ilktahakkukbilgi] (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
 
-                    IWebElement pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
+                ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tr/td/table/tr/td/div/table/tr[" + i + "]/td[1]"));
 
+               // ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
+                //*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[3]/td[1]
+                ReadOnlyCollection<IWebElement> hizmetay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[2]"));
+                ReadOnlyCollection<IWebElement> belgeturu = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[3]"));
+                ReadOnlyCollection<IWebElement> belgemahiyeti = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[4]"));
+                ReadOnlyCollection<IWebElement> kanunno = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[5]"));
+                ReadOnlyCollection<IWebElement> calisan = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[6]"));
+                ReadOnlyCollection<IWebElement> gun = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[7]"));
+                ReadOnlyCollection<IWebElement> spek = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[8]"));
 
-
-                    // thklarial.Parameters.AddWithValue("@hizmetay", (hizmetay.ToString().Trim().Substring(0,hizmetay+7);
+                IWebElement pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
 
 
 
-                    thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
-                    thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
-                    thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text);
-                    thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text);
-                    thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text);
-                    thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text);
-                    thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text);
-                    thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text);
-                    thklarial.Parameters.AddWithValue("@gun", gun.First().Text);
-                    string spekk = spek.ToString().Substring(0, spek.First().Text.ToString().Length - 3);
-                    thklarial.Parameters.AddWithValue("@spk", spekk);
-                    //thklarial.Parameters.AddWithValue("@pdf", pdf.First().Text);
+                // thklarial.Parameters.AddWithValue("@hizmetay", (hizmetay.ToString().Trim().Substring(0,hizmetay+7);
 
-                    pdf.Click();
-                    baglan.Close();
-                }
-                catch (Exception)
-                {
+                listBox1.Items.Add(donemay.First().Text).ToString();
+                listBox1.Items.Add(hizmetay.First().Text).ToString();
+                listBox1.Items.Add(belgeturu.First().Text).ToString();
+                listBox1.Items.Add(belgemahiyeti.First().Text).ToString();
+                listBox1.Items.Add(kanunno.First().Text).ToString();
+                listBox1.Items.Add(calisan.First().Text).ToString();
+                listBox1.Items.Add(gun.First().Text).ToString();
+                listBox1.Items.Add(spek.First().Text).ToString();
+                listBox1.Items.Add(pdf.Text).ToString();
 
-                    throw;
-                }
-                
+                //thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
+                //thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
+                //thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text);
+                //thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text);
+                //thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text);
+                //thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text);
+                //thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text);
+                //thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text);
+                //thklarial.Parameters.AddWithValue("@gun", gun.First().Text);
+                //string spekk = spek.ToString().Substring(0, spek.First().Text.ToString().Length - 3);
+                //thklarial.Parameters.AddWithValue("@spk", spekk);
+                //thklarial.Parameters.AddWithValue("@pdf", pdf.First().Text);
+
+                //pdf.Click();
+                //baglan.Close();
+
             }
-
-
-            tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
         }
 
         private void tb6sgkisyeribilgi_Click(object sender, EventArgs e)

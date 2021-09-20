@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace tesvik10
 {
@@ -16,11 +17,12 @@ namespace tesvik10
             InitializeComponent();
         }
 
-        SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
 
         public void verilerigoster(string veriler)
         {
-            SqlDataAdapter da = new SqlDataAdapter(veriler,baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(veriler,baglan);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -51,8 +53,8 @@ namespace tesvik10
         private void SubeKayit_Load(object sender, EventArgs e)
         {
             baglan.Open();
-            SqlCommand cmddoldur = new SqlCommand("select *  From Hizli_Firma_Kayit",baglan);
-            SqlDataReader rdr = cmddoldur.ExecuteReader();
+            SQLiteCommand cmddoldur = new SQLiteCommand("select *  From Hizli_Firma_Kayit",baglan);
+            SQLiteDataReader rdr = cmddoldur.ExecuteReader();
             while (rdr.Read())
             {
                 comboBox1.Items.Add(rdr[2]);
@@ -87,7 +89,7 @@ namespace tesvik10
                 {
                     
                     baglan.Open();
-                    SqlCommand ekle = new SqlCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid) values (@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid)", baglan);
+                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid) values (@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid)", baglan);
 
 
 
@@ -123,7 +125,7 @@ namespace tesvik10
 
 
                     baglan.Open();
-                    SqlCommand guncelle = new SqlCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid WHERE subeid = @subeid", baglan);
+                    SQLiteCommand guncelle = new SQLiteCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid WHERE subeid = @subeid", baglan);
 
                     int subeid = Convert.ToInt32(lblsubeid.Text);
                     //int firmaid = Convert.ToInt32(lblfirmano.Text);
@@ -164,8 +166,8 @@ namespace tesvik10
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             baglan.Open();
-            SqlCommand cmd = new SqlCommand("select * From Hizli_Firma_Kayit where Firmakisaadi = '"+comboBox1.Text.ToString()+"'", baglan);
-            SqlDataReader firmabilgileri = cmd.ExecuteReader();
+            SQLiteCommand cmd = new SQLiteCommand("select * From Hizli_Firma_Kayit where Firmakisaadi = '"+comboBox1.Text.ToString()+"'", baglan);
+            SQLiteDataReader firmabilgileri = cmd.ExecuteReader();
             while (firmabilgileri.Read())
             {
                 lblfirmano.Text = (firmabilgileri[0].ToString());
@@ -239,7 +241,7 @@ namespace tesvik10
         {
             baglan.Open();
             int subeid = Convert.ToInt32(lblsubeid.Text);
-            SqlCommand sil = new SqlCommand("Delete from sube_bilgileri where subeid= '" +subeid+ "'", baglan);
+            SQLiteCommand sil = new SQLiteCommand("Delete from sube_bilgileri where subeid= '" +subeid+ "'", baglan);
             sil.ExecuteNonQuery();
             int firmaid = Convert.ToInt32(lblfirmano.Text);
             verilerigoster("Select * from sube_bilgileri where firmaid = '" + firmaid + "'");

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace tesvik10
 {
@@ -15,11 +16,11 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-        SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
-
+        //SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
         public void verilerigetir(string veriler)
         {
-            SqlDataAdapter da = new SqlDataAdapter(veriler,baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(veriler,baglan);
             DataSet ds = new DataSet();
             da.Fill(ds);
 
@@ -85,7 +86,7 @@ namespace tesvik10
             baglan.Open();
             if (lblrefno.Text == "-")
             {
-                SqlCommand ekle = new SqlCommand("INSERT INTO [ReferansBilgileri] (referansadsoyad ,reffirmaunvan,refeposta ,reftelefon,refadres, refil, refilce,refnotlar1, refnotlar2,aktifpasif) values (@adi,@firma,@eposta,@telefon,@adres,@il,@ilce,@not1,@not2,@durum)",baglan);
+                SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [ReferansBilgileri] (referansadsoyad ,reffirmaunvan,refeposta ,reftelefon,refadres, refil, refilce,refnotlar1, refnotlar2,aktifpasif) values (@adi,@firma,@eposta,@telefon,@adres,@il,@ilce,@not1,@not2,@durum)",baglan);
 
                 ekle.Parameters.AddWithValue("@adi", txtrefadsoyad.Text.ToString().Trim());
                 ekle.Parameters.AddWithValue("@firma", txtreffirma.Text.ToString().Trim());
@@ -104,7 +105,7 @@ namespace tesvik10
             
                 else
             {
-                    SqlCommand guncelle = new SqlCommand("update ReferansBilgileri set referansadsoyad='" + txtrefadsoyad.Text + "' ,reffirmaunvan='" + txtreffirma.Text + "',refeposta='" + txteposta.Text + "' ,reftelefon='" + txtreftelefon.Text + "',refadres='" + rcbadres.Text + "', refil='" + txtrefil.Text + "', refilce='" + txtrefilce.Text + "',refnotlar1='" + rcbnot1.Text + "', refnotlar2='" + rcbnot2.Text + "',aktifpasif=@durum where referansid ='" + lblrefno.Text + "'", baglan);
+                SQLiteCommand guncelle = new SQLiteCommand("update ReferansBilgileri set referansadsoyad='" + txtrefadsoyad.Text + "' ,reffirmaunvan='" + txtreffirma.Text + "',refeposta='" + txteposta.Text + "' ,reftelefon='" + txtreftelefon.Text + "',refadres='" + rcbadres.Text + "', refil='" + txtrefil.Text + "', refilce='" + txtrefilce.Text + "',refnotlar1='" + rcbnot1.Text + "', refnotlar2='" + rcbnot2.Text + "',aktifpasif=@durum where referansid ='" + lblrefno.Text + "'", baglan);
 
                 guncelle.Parameters.AddWithValue("@durum", durum.ToString().Trim());
 
@@ -123,7 +124,7 @@ namespace tesvik10
             {
                 baglan.Open();
                 int id = Convert.ToInt32(lblrefno.Text);
-                SqlCommand sil = new SqlCommand("delete from ReferansBilgileri where referansid='" + id + "'", baglan);
+                SQLiteCommand sil = new SQLiteCommand("delete from ReferansBilgileri where referansid='" + id + "'", baglan);
                 sil.ExecuteNonQuery();
                 verilerigetir("select referansid as ID,referansadsoyad as ADI_SOYADI,reffirmaunvan as FİRMA_UNVAN,refeposta AS EPOSTA,reftelefon as TELEFON,refadres as ADRES, refil as İL, refilce as İLCE,refnotlar1 as NOT1, refnotlar2 as NOTT from ReferansBilgileri");
                 tabloyutemizle();

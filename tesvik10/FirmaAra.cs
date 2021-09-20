@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace tesvik10
 {
@@ -15,11 +16,11 @@ namespace tesvik10
         {
             InitializeComponent();
         }
-        SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-89G3BRQ\SQLEXPRESS;Initial Catalog=TesvikData;Integrated Security=True");
+        SQLiteConnection baglan = new SQLiteConnection(@"Data Source = C:\Users\Rana\source\repos\tesvik10\PdfOku\TesvikData.db; Version=3");
 
         public void verilerigoster(string veriler)
         {
-            SqlDataAdapter da = new SqlDataAdapter(veriler, baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(veriler, baglan);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
