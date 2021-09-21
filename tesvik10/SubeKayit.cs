@@ -7,6 +7,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using OpenQA.Selenium.Chrome;
+using System.Net;
+using OpenQA.Selenium;
+using System.Collections.ObjectModel;
 
 namespace tesvik10
 {
@@ -247,13 +251,42 @@ namespace tesvik10
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
+        {           
+            var driverPath = Application.StartupPath;
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            var driver = new ChromeDriver(driverPath, chromeOptions);
+
+            string v = txtGuvenlik.Text.ToString().Trim();
+            string klnc = txtsgkkullanici.Text.ToString().Trim();
+            string ek = txtek.Text.ToString().Trim();
+            string sistem = txtsistem.Text.ToString().Trim();
+            string isyeri = txtsgkisyeri.Text.ToString().Trim();
+
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+
+
+
+
+
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             tabloyutemizle();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var request = WebRequest.Create("https://ebildirge.sgk.gov.tr/WPEB/PG");
+
+            using (var response = request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            {
+                pictureBox1.Image = Bitmap.FromStream(stream);
+            }
         }
     }
 }

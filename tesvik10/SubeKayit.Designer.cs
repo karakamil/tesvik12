@@ -82,8 +82,11 @@ namespace tesvik10
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtGuvenlik = new System.Windows.Forms.TextBox();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txttamunvan
@@ -638,7 +641,7 @@ namespace tesvik10
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button4.Location = new System.Drawing.Point(525, 129);
+            this.button4.Location = new System.Drawing.Point(520, 125);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 45);
             this.button4.TabIndex = 64;
@@ -658,12 +661,33 @@ namespace tesvik10
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pictureBox1.Location = new System.Drawing.Point(636, 125);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 25);
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // txtGuvenlik
+            // 
+            this.txtGuvenlik.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtGuvenlik.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtGuvenlik.Location = new System.Drawing.Point(636, 151);
+            this.txtGuvenlik.Name = "txtGuvenlik";
+            this.txtGuvenlik.Size = new System.Drawing.Size(68, 23);
+            this.txtGuvenlik.TabIndex = 67;
+            // 
             // SubeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(896, 531);
+            this.Controls.Add(this.txtGuvenlik);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -708,6 +732,7 @@ namespace tesvik10
             this.grpbxfirmabilgileri.ResumeLayout(false);
             this.grpbxfirmabilgileri.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -768,5 +793,7 @@ namespace tesvik10
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtGuvenlik;
     }
 }

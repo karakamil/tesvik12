@@ -17,7 +17,7 @@ namespace tesvik10
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tahmin());
+            Application.Run(new SubeKayit());
         }
     }
 }
