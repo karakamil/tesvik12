@@ -102,7 +102,7 @@ namespace PdfOku
                 {
                     ++num2;
                     sqlCommand.CommandText = "Insert Into HizmetListesi (KurumID,Year,Month,SgkNo,Ad,Soyad,IlkSoyad,Ucret,Ikramiye," +
-                                             "Gun,Eksik_Gun,GGun,CGun,Egs,Icn,Meslek_Kodu,Kanun_No,Belge_Cesidi,Belge_Turu,OnayBekleyen,Mahiyet,UCG,subeid,firmaid,personelid,firmPersid,Donem)VALUES (@KURUMID,@YEAR,@MONTH,@SGKNO,@AD,@SOYAD,@ILKSOYAD,@UCRET,@IKRAMIYE,@GUN,@EKSIK_GUN,@GGUN,@CGUN,@EGS,@ICN,@MESLEK_KODU,@KANUN_NO,@BELGE_CESIDI,@BELGETURU,@ONAYBEKLEYEN,@MAHIYET,@UCG,@subid,@firmaid,@Persid,@firmPersid,@DONEM)";
+                                             "Gun,Eksik_Gun,GGun,CGun,Egs,Icn,Meslek_Kodu,Kanun_No,Belge_Cesidi,Belge_Turu,OnayBekleyen,Mahiyet,UCG,subeid,firmaid,personelid,firmPersid,Donem,Asg_Ucr_GV,Agi_Minumum,Asg_Ucr_Trk_icin_Matrah,gvTerkin,dvTerkin)VALUES (@KURUMID,@YEAR,@MONTH,@SGKNO,@AD,@SOYAD,@ILKSOYAD,@UCRET,@IKRAMIYE,@GUN,@EKSIK_GUN,@GGUN,@CGUN,@EGS,@ICN,@MESLEK_KODU,@KANUN_NO,@BELGE_CESIDI,@BELGETURU,@ONAYBEKLEYEN,@MAHIYET,@UCG,@subid,@firmaid,@Persid,@firmPersid,@DONEM,@augv,@agimin,@trkMatrh,@gvterkin,@dvterkin)";
                     sqlCommand.Parameters.Clear();
                     sqlCommand.Parameters.AddWithValue("@KURUMID", (object)1);
                     //sqlCommand.Parameters.AddWithValue("@YEAR", (object)Convert.ToInt32(pdfHizmetListesi.Donem.Split('/')[0].ToString().Trim()));
@@ -136,13 +136,59 @@ namespace PdfOku
                     sqlCommand.Parameters.AddWithValue("@firmaid", firmid);
                     sqlCommand.Parameters.AddWithValue("@subid", subid);
                     
-                    
+                    int gun = Convert.ToInt32(pdfHizmetListesi.Gun.Trim());
                     string yill= (pdfHizmetListesi.Donem.Split('/')[0].ToString().Trim());
                     string ayy = (pdfHizmetListesi.Donem.Split('/')[1].ToString().Trim());
                     string tcn= pdfHizmetListesi.SgkNo.Trim();
                     sqlCommand.Parameters.AddWithValue("@Persid", yill + "" + ayy + "" + tcn);
                     sqlCommand.Parameters.AddWithValue("@firmPersid", firmid + "" + subid + "" + yill + "" + ayy + "" + tcn);
                     sqlCommand.Parameters.AddWithValue("@DONEM", (object)(pdfHizmetListesi.Donem.ToString().Trim()));
+
+                    string kanun = pdfHizmetListesi.KanunNo.Replace('(', '-').ToString().Trim().ToString().Replace(')', ' ').ToString().Trim();
+                    if (kanun=="00687" || kanun == "01687" || kanun == "17103" || kanun == "27103" )
+                    {
+
+                    
+                        SQLiteCommand frm = new SQLiteCommand("select * from agi_tablosu where agi_yil='" + yill+"' ", sqlConnection);
+                        SQLiteDataReader da = frm.ExecuteReader();
+                        while (da.Read())
+                        {
+
+                            var minAgitutari = (Convert.ToDouble(da[2]));
+                            var asUcrGvTut = (Convert.ToDouble(da[4]));
+                            var gvterkinmax = (Convert.ToDouble(da[5]));
+                            var dvterkin = (Convert.ToDouble(da[6]));
+                            var auterkmatrahi = Convert.ToDouble((asUcrGvTut / 30) * Convert.ToInt32(gun));
+                            sqlCommand.Parameters.AddWithValue("@agimin", minAgitutari);
+                            sqlCommand.Parameters.AddWithValue("@augv", asUcrGvTut);
+                            sqlCommand.Parameters.AddWithValue("@trkMatrh", auterkmatrahi);
+                            if (((asUcrGvTut/30)*Convert.ToInt32(gun))>=asUcrGvTut)
+                            {
+                                sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(gvterkinmax));
+                            }
+                            else if (((asUcrGvTut / 30) * Convert.ToInt32(gun)>=minAgitutari && (asUcrGvTut / 30) * Convert.ToInt32(gun) <asUcrGvTut))
+                            {
+                                sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(auterkmatrahi - minAgitutari));
+                            }
+                            else
+                            {
+                                sqlCommand.Parameters.AddWithValue("@gvterkin", 0);
+                            }
+                            sqlCommand.Parameters.AddWithValue("@dvterkin", Convert.ToDouble(dvterkin));
+                        }
+
+                    }
+                    else
+                    {
+                        sqlCommand.Parameters.AddWithValue("@agimin", 0);
+                        sqlCommand.Parameters.AddWithValue("@augv", 0);
+                        sqlCommand.Parameters.AddWithValue("@trkMatrh", 0);
+                        sqlCommand.Parameters.AddWithValue("@gvterkin", 0);
+                        sqlCommand.Parameters.AddWithValue("@dvterkin", 0);
+
+                    }
+
+
 
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.ExecuteNonQuery();

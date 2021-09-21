@@ -26,6 +26,7 @@ namespace tesvik10
         }
 
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
+        
 
         public void verilerilistele(string veriler)
         {
@@ -255,7 +256,6 @@ namespace tesvik10
             pdfOku.DosyaOkumayaBasla();
             hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
         }
-
 
     }
     
