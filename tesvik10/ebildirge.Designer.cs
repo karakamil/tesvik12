@@ -58,6 +58,8 @@ namespace tesvik10
             this.lblsubeid = new System.Windows.Forms.Label();
             this.txtebldv2guvenlik = new System.Windows.Forms.TextBox();
             this.btnthkkal = new System.Windows.Forms.Button();
+            this.cmbilk = new System.Windows.Forms.ComboBox();
+            this.cmbson = new System.Windows.Forms.ComboBox();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -130,7 +132,6 @@ namespace tesvik10
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(213, 23);
             this.comboBox1.TabIndex = 36;
-//            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // label6
@@ -381,12 +382,30 @@ namespace tesvik10
             this.btnthkkal.UseVisualStyleBackColor = false;
             this.btnthkkal.Click += new System.EventHandler(this.btnthkkal_Click);
             // 
+            // cmbilk
+            // 
+            this.cmbilk.FormattingEnabled = true;
+            this.cmbilk.Location = new System.Drawing.Point(783, 92);
+            this.cmbilk.Name = "cmbilk";
+            this.cmbilk.Size = new System.Drawing.Size(97, 23);
+            this.cmbilk.TabIndex = 45;
+            // 
+            // cmbson
+            // 
+            this.cmbson.FormattingEnabled = true;
+            this.cmbson.Location = new System.Drawing.Point(783, 117);
+            this.cmbson.Name = "cmbson";
+            this.cmbson.Size = new System.Drawing.Size(97, 23);
+            this.cmbson.TabIndex = 46;
+            // 
             // ebildirge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(963, 531);
+            this.Controls.Add(this.cmbson);
+            this.Controls.Add(this.cmbilk);
             this.Controls.Add(this.btnthkkal);
             this.Controls.Add(this.txtebldv2guvenlik);
             this.Controls.Add(this.lblsubeid);
@@ -447,5 +466,7 @@ namespace tesvik10
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button btnaphlistele;
+        private System.Windows.Forms.ComboBox cmbilk;
+        private System.Windows.Forms.ComboBox cmbson;
     }
 }

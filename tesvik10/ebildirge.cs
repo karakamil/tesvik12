@@ -66,6 +66,15 @@ namespace tesvik10
                 comboBox1.Items.Add(dr[2]);
             }
             baglan.Close();
+            
+            baglan.Open();
+            SQLiteCommand Donem = new SQLiteCommand("Select * From DonemBilgisi", baglan);
+            SQLiteDataReader dnmdr = Donem.ExecuteReader();
+            while (dnmdr.Read())
+            {
+                cmbilk.Items.Add(dnmdr[3]);
+                cmbson.Items.Add(dnmdr[3]);
+            }
        
         }
 
@@ -155,9 +164,7 @@ namespace tesvik10
 
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=2&hizmet_yil_ay_index_bitis=3");
 
-            //string v = textBox1.Text.ToString().Trim();
-            //driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=12178849190&isyeri_kod=084&password=32978025&isyeri_sifre=70272627&isyeri_guvenlik=" + v + "");
-            //driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=2&hizmet_yil_ay_index_bitis=3");
+
 
             ReadOnlyCollection<IWebElement> tahakkukadet = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr"));
 
@@ -208,16 +215,16 @@ namespace tesvik10
 
                 thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
                 thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
-                thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text);
-                thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text);
-                thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text);
-                thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text);
-                thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text);
-                thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text);
-                thklarial.Parameters.AddWithValue("@gun", gun.First().Text);
-                string spekk = spek.ToString().Substring(0, spek.First().Text.ToString().Length - 3);
-                thklarial.Parameters.AddWithValue("@spk", spekk);
-                thklarial.Parameters.AddWithValue("@pdf", pdf.Text.ToString());
+                thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@gun", gun.First().Text.ToString().Trim());
+                //string spekk = spek.ToString().Substring(0, spek.First().Text.ToString());
+                thklarial.Parameters.AddWithValue("@spk", spek.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@pdf", pdf.Text.ToString().Trim()); 
 
                 pdf.Click();
                 baglan.Close();

@@ -257,16 +257,26 @@ namespace tesvik10
             chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
             chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
             var driver = new ChromeDriver(driverPath, chromeOptions);
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+
 
             string v = txtGuvenlik.Text.ToString().Trim();
             string klnc = txtsgkkullanici.Text.ToString().Trim();
             string ek = txtek.Text.ToString().Trim();
             string sistem = txtsistem.Text.ToString().Trim();
             string isyeri = txtsgkisyeri.Text.ToString().Trim();
+            string guvenlik = txtGuvenlik.Text.ToString().Trim();
 
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
 
 
+
+            driver.FindElementByName("j_username").SendKeys (klnc);
+            driver.FindElementByName("isyeri_kod").SendKeys(ek);
+            driver.FindElementByName("j_password").SendKeys(sistem);
+            driver.FindElementByName("isyeri_sifre").SendKeys(isyeri);
+            driver.FindElementByName("isyeri_guvenlik").SendKeys(guvenlik);
+            driver.FindElementByName("btnSubmit").Click();
 
 
 
@@ -278,10 +288,30 @@ namespace tesvik10
             tabloyutemizle();
         }
 
+        public static void ebildv1()
+        {
+            var driverPath = Application.StartupPath;
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            var driver = new ChromeDriver(driverPath, chromeOptions);
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+           
+            var request = (driver.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img")));
+
+            {
+            //    pictureBox1.Image = Bitmap.FromStream(stream);
+            }
+            
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
+            
+            
             var request = WebRequest.Create("https://ebildirge.sgk.gov.tr/WPEB/PG");
-
+            
             using (var response = request.GetResponse())
             using (var stream = response.GetResponseStream())
             {
