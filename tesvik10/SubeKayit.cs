@@ -318,5 +318,10 @@ namespace tesvik10
                 pictureBox1.Image = Bitmap.FromStream(stream);
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

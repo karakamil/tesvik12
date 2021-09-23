@@ -265,28 +265,15 @@ namespace tesvik10
                 //16.788,89 TL-- 38.700,52
                 //38.700,52 TL--38.700,52 TL 25 asd
 
-                try
+                if ((pdf.Text.ToString().Trim()) == "H")
                 {
-                    if ((pdf.Text.ToString().Trim()) == "H")
-                    {
-                        pdf.Click();
-                    }
-                    else
-                    {
-                        driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[13]/td[10]/div/a[2]")).Click();
-
-
-                        //*[@id="contentContainer"]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/div/table/tbody/tr[12]/td[10]/div/a[2]  -2021/7
-                    }
-
-                }
-                catch (Exception)
-                {
-                    
-                    thklarial.Parameters.AddWithValue("@pdf", donemay.First().Text.ToString().Trim() + " / " + kanunno.First().Text.ToString().Trim() + " indirme başarısız");
                     pdf.Click();
-                    // throw;
                 }
+                else
+                {
+                    thklarial.Parameters.AddWithValue("@pdf", donemay.First().Text.ToString().Trim() + " / " + kanunno.First().Text.ToString().Trim() + " indirme başarısız");
+                }
+                
                 thklarial.ExecuteNonQuery();
 
             }

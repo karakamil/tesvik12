@@ -300,7 +300,7 @@ namespace tesvik10
             this.dataGridView1.Location = new System.Drawing.Point(8, 307);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(667, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(690, 198);
             this.dataGridView1.TabIndex = 82;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -333,7 +333,7 @@ namespace tesvik10
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(678, 508);
+            this.ClientSize = new System.Drawing.Size(710, 519);
             this.Controls.Add(this.btnyeni);
             this.Controls.Add(this.btnsil);
             this.Controls.Add(this.dataGridView1);

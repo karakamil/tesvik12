@@ -18,9 +18,59 @@ namespace tesvik10
             InitializeComponent();
         }
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
+        DataTable firmayaGoreAra = new DataTable();
+        DataView unvanFiltre()
+        {
+            DataView dv = new DataView();
+            dv = firmayaGoreAra.DefaultView;
+            dv.RowFilter = "FİRMA_TANIM like '%" + txtunvanagore.Text + "%'";
+            dataGridView1.DataSource = dv;
+            return dv;
+        }
+
+        DataView noFiltre()
+        {
+            DataView dv = new DataView();
+            dv = firmayaGoreAra.DefaultView;
+            dv.RowFilter = "Firma_No like '%" + txtfirmanoyagore.Text + "%'";
+            dataGridView1.DataSource = dv;
+            return dv;
+        }
+
+        DataView referansFiltre()
+        {
+            DataView dv = new DataView();
+            dv = firmayaGoreAra.DefaultView;
+            dv.RowFilter = "REFERANS  like '%" + txtreferansagore.Text + "%'";
+            dataGridView1.DataSource = dv;
+            return dv;
+        }
+        DataView durumFiltre()
+        {
+            DataView dv = new DataView();
+            dv = firmayaGoreAra.DefaultView;
+            dv.RowFilter = "DURUM like '%" + cmbdurumagore.Text + "%'";
+            dataGridView1.DataSource = dv;
+            return dv;
+        }
+
+        public void firmabilgilerinigoster(string firmabilgileri)
+        {
+            SQLiteDataAdapter da = new SQLiteDataAdapter("Select firmaid as ID,  Firma_No, Firmakisaadi as FİRMA_TANIM, Refadsoyad as REFERANS, aktifpasif as DURUM From Hizli_Firma_Kayit", baglan);
+            //DataSet ds = new DataSet();
+            da.Fill(firmayaGoreAra);
+            dataGridView1.DataSource = firmayaGoreAra;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+
+        }
+
 
         private void FirmaKayit_Load(object sender, EventArgs e)
         {
+
+            firmabilgilerinigoster ("Select firmaid as ID,  Firma_No, Firmakisaadi as FİRMA_TANIM, Refadsoyad as REFERANS, aktifpasif as DURUM From Hizli_Firma_Kayit");
+            
             baglan.Open();
             SQLiteCommand doldur = new SQLiteCommand("select * from ReferansBilgileri", baglan);
             SQLiteDataReader dr = doldur.ExecuteReader();
@@ -58,7 +108,7 @@ namespace tesvik10
                 {
                     chkbxpasif.Checked = false;
                 }
-               // baglan.Close();
+
             }
             baglan.Close();
         }
@@ -91,17 +141,18 @@ namespace tesvik10
 
         private void cmbrefadsoyad_SelectedValueChanged(object sender, EventArgs e)
         {
-            baglan.Open();
-            SQLiteCommand doldur = new SQLiteCommand("select * from ReferansBilgileri where referansadsoyad like '"+ cmbrefadsoyad.Text +"'", baglan);
-            SQLiteDataReader dr = doldur.ExecuteReader();
-            while (dr.Read())
-            {
 
-                lblrefid.Text = (dr[0]).ToString();
-                txtreftelefon.Text = (dr[4]).ToString();
+            //baglan.Open();
+            //SQLiteCommand doldur = new SQLiteCommand("select * from ReferansBilgileri where referansadsoyad like '"+ cmbrefadsoyad.Text +"'", baglan);
+            //SQLiteDataReader dr = doldur.ExecuteReader();
+            //while (dr.Read())
+            //{
 
-            }
-            baglan.Close();
+            //    lblrefid.Text = (dr[0]).ToString();
+            //    txtreftelefon.Text = (dr[4]).ToString();
+
+            //}
+            //baglan.Close();
 
         }
 
@@ -169,5 +220,76 @@ namespace tesvik10
             rctxfirmnot.Text = "";
             chkbxpasif.Checked = false;
         }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            int secim = dataGridView1.SelectedCells[0].RowIndex;
+            string firmaid = dataGridView1.Rows[secim].Cells[0].Value.ToString();
+            txtfrmno.Text = firmaid.ToString();
+            int frmid = Convert.ToInt32(firmaid);
+            baglan.Open();
+            SQLiteCommand arananfirma = new SQLiteCommand("select * from Hizli_Firma_Kayit where firmaid ='" + frmid + "'", baglan);
+            SQLiteDataReader aranan = arananfirma.ExecuteReader();
+            while (aranan.Read())
+            {
+                txtfrmno.Text = aranan[1].ToString();
+                txtkisaunvan.Text = aranan[2].ToString();
+                txtvd.Text = aranan[3].ToString();
+                txtvn.Text = aranan[4].ToString();
+                txtyetkili.Text = aranan[5].ToString();
+                txtytkltelefon.Text = aranan[6].ToString();
+                txtytkposta.Text = aranan[7].ToString();
+                lblrefid.Text = aranan[8].ToString();
+                cmbrefadsoyad.Text = aranan[9].ToString();
+                txtreftelefon.Text = aranan[10].ToString();
+                txtvdkullanici.Text = aranan[11].ToString();
+                txtvdparola.Text = aranan[12].ToString();
+                txtvdsifre.Text = aranan[13].ToString();
+                rctxfirmnot.Text = aranan[14].ToString();
+                if (aranan[15].ToString() == "Pasif")
+                {
+                    chkbxpasif.Checked = true;
+                }
+                else
+                {
+                    chkbxpasif.Checked = false;
+                }
+                
+            }
+
+            baglan.Close();
+        }
+
+        private void txtunvanagore_TextChanged(object sender, EventArgs e)
+        {
+            unvanFiltre();
+        }
+
+        private void txtfirmanoyagore_TextChanged(object sender, EventArgs e)
+        {
+            noFiltre();
+        }
+
+        private void txtreferansagore_TextChanged(object sender, EventArgs e)
+        {
+            referansFiltre();
+        }
+
+        private void cmbdurumagore_SelectedValueChanged(object sender, EventArgs e)
+        {
+            durumFiltre();
+        }
+
+        private void btnkapat_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Değişiklikleri Kaydetmeyi Unutmayınız, Yinede Çıkmak İstiyormusunuz...?", "DİKKAT", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog ==DialogResult.Yes)
+            {
+                this.Close();
+            }
+            
+        }
     }
+
 }
