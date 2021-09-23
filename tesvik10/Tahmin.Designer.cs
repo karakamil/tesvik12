@@ -50,6 +50,10 @@ namespace tesvik10
             this.lbldvst = new System.Windows.Forms.Label();
             this.lbldnmdv = new System.Windows.Forms.Label();
             this.lbldetaydv = new System.Windows.Forms.Label();
+            this.cmbilk = new System.Windows.Forms.ComboBox();
+            this.cmbson = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGritSubeOzet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGritAyOzet)).BeginInit();
@@ -116,17 +120,17 @@ namespace tesvik10
             this.dataGritAyOzet.Location = new System.Drawing.Point(3, 193);
             this.dataGritAyOzet.Name = "dataGritAyOzet";
             this.dataGritAyOzet.RowTemplate.Height = 25;
-            this.dataGritAyOzet.Size = new System.Drawing.Size(287, 375);
+            this.dataGritAyOzet.Size = new System.Drawing.Size(312, 375);
             this.dataGritAyOzet.TabIndex = 38;
             this.dataGritAyOzet.Click += new System.EventHandler(this.dataGritAyOzet_Click);
             // 
             // dataGirtAyrıntı
             // 
             this.dataGirtAyrıntı.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGirtAyrıntı.Location = new System.Drawing.Point(296, 193);
+            this.dataGirtAyrıntı.Location = new System.Drawing.Point(321, 193);
             this.dataGirtAyrıntı.Name = "dataGirtAyrıntı";
             this.dataGirtAyrıntı.RowTemplate.Height = 25;
-            this.dataGirtAyrıntı.Size = new System.Drawing.Size(899, 375);
+            this.dataGirtAyrıntı.Size = new System.Drawing.Size(874, 375);
             this.dataGirtAyrıntı.TabIndex = 39;
             // 
             // lblsubeid
@@ -283,12 +287,54 @@ namespace tesvik10
             this.lbldetaydv.TabIndex = 59;
             this.lbldetaydv.Text = "-";
             // 
+            // cmbilk
+            // 
+            this.cmbilk.FormattingEnabled = true;
+            this.cmbilk.Location = new System.Drawing.Point(109, 61);
+            this.cmbilk.Name = "cmbilk";
+            this.cmbilk.Size = new System.Drawing.Size(97, 23);
+            this.cmbilk.TabIndex = 60;
+            // 
+            // cmbson
+            // 
+            this.cmbson.FormattingEnabled = true;
+            this.cmbson.Location = new System.Drawing.Point(109, 90);
+            this.cmbson.Name = "cmbson";
+            this.cmbson.Size = new System.Drawing.Size(97, 23);
+            this.cmbson.TabIndex = 61;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(12, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 15);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "İlk Dönem";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(12, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 15);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "Son Dönem";
+            // 
             // Tahmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1207, 592);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbson);
+            this.Controls.Add(this.cmbilk);
             this.Controls.Add(this.lbldetaydv);
             this.Controls.Add(this.lbldnmdv);
             this.Controls.Add(this.lbldvst);
@@ -343,5 +389,9 @@ namespace tesvik10
         private System.Windows.Forms.Label lbldvst;
         private System.Windows.Forms.Label lbldnmdv;
         private System.Windows.Forms.Label lbldetaydv;
+        private System.Windows.Forms.ComboBox cmbilk;
+        private System.Windows.Forms.ComboBox cmbson;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
     }
 }

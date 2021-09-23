@@ -29,8 +29,8 @@ namespace tesvik10
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbxfirmabilgileri = new System.Windows.Forms.GroupBox();
-            this.btnaphlistele = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -39,6 +39,7 @@ namespace tesvik10
             this.lbltelefon = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblyetkiliadsoyad = new System.Windows.Forms.Label();
+            this.btnaphlistele = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,6 +61,7 @@ namespace tesvik10
             this.btnthkkal = new System.Windows.Forms.Button();
             this.cmbilk = new System.Windows.Forms.ComboBox();
             this.cmbson = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.grpbxfirmabilgileri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,7 +75,6 @@ namespace tesvik10
             // 
             // grpbxfirmabilgileri
             // 
-            this.grpbxfirmabilgileri.Controls.Add(this.btnaphlistele);
             this.grpbxfirmabilgileri.Controls.Add(this.label1);
             this.grpbxfirmabilgileri.Controls.Add(this.pictureBox1);
             this.grpbxfirmabilgileri.Controls.Add(this.comboBox1);
@@ -90,19 +91,6 @@ namespace tesvik10
             this.grpbxfirmabilgileri.TabStop = false;
             this.grpbxfirmabilgileri.Text = "FİRMA BİLGİLERİ";
             // 
-            // btnaphlistele
-            // 
-            this.btnaphlistele.BackColor = System.Drawing.Color.Salmon;
-            this.btnaphlistele.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnaphlistele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnaphlistele.Location = new System.Drawing.Point(748, 0);
-            this.btnaphlistele.Name = "btnaphlistele";
-            this.btnaphlistele.Size = new System.Drawing.Size(177, 27);
-            this.btnaphlistele.TabIndex = 44;
-            this.btnaphlistele.Text = "APHB LİSTELE";
-            this.btnaphlistele.UseVisualStyleBackColor = false;
-            this.btnaphlistele.Click += new System.EventHandler(this.btnaphlistele_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,10 +105,10 @@ namespace tesvik10
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.pictureBox1.Location = new System.Drawing.Point(523, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(547, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(218, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -189,6 +177,19 @@ namespace tesvik10
             this.lblyetkiliadsoyad.TabIndex = 26;
             this.lblyetkiliadsoyad.Text = "-";
             // 
+            // btnaphlistele
+            // 
+            this.btnaphlistele.BackColor = System.Drawing.Color.Salmon;
+            this.btnaphlistele.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnaphlistele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnaphlistele.Location = new System.Drawing.Point(890, 20);
+            this.btnaphlistele.Name = "btnaphlistele";
+            this.btnaphlistele.Size = new System.Drawing.Size(177, 27);
+            this.btnaphlistele.TabIndex = 44;
+            this.btnaphlistele.Text = "APHB LİSTELE";
+            this.btnaphlistele.UseVisualStyleBackColor = false;
+            this.btnaphlistele.Click += new System.EventHandler(this.btnaphlistele_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Salmon;
@@ -233,7 +234,7 @@ namespace tesvik10
             this.tb6sgkisyeribilgi.Location = new System.Drawing.Point(12, 229);
             this.tb6sgkisyeribilgi.Name = "tb6sgkisyeribilgi";
             this.tb6sgkisyeribilgi.SelectedIndex = 0;
-            this.tb6sgkisyeribilgi.Size = new System.Drawing.Size(939, 290);
+            this.tb6sgkisyeribilgi.Size = new System.Drawing.Size(1055, 344);
             this.tb6sgkisyeribilgi.TabIndex = 34;
             this.tb6sgkisyeribilgi.Click += new System.EventHandler(this.tb6sgkisyeribilgi_Click);
             // 
@@ -243,7 +244,7 @@ namespace tesvik10
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(931, 262);
+            this.tabPage1.Size = new System.Drawing.Size(1047, 316);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tahakkuk Bilgileri";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -251,10 +252,18 @@ namespace tesvik10
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Location = new System.Drawing.Point(8, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(917, 250);
+            this.dataGridView2.Size = new System.Drawing.Size(1033, 307);
             this.dataGridView2.TabIndex = 34;
             // 
             // tabPage2
@@ -263,7 +272,7 @@ namespace tesvik10
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(931, 262);
+            this.tabPage2.Size = new System.Drawing.Size(1047, 316);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "APHB Liste";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -282,7 +291,7 @@ namespace tesvik10
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(931, 262);
+            this.tabPage3.Size = new System.Drawing.Size(1047, 316);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mosip Emanet";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -292,7 +301,7 @@ namespace tesvik10
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(931, 262);
+            this.tabPage4.Size = new System.Drawing.Size(1047, 316);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Son Tahakkuk Bilgileri";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -302,7 +311,7 @@ namespace tesvik10
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(931, 262);
+            this.tabPage5.Size = new System.Drawing.Size(1047, 316);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Borç Durumu";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -312,7 +321,7 @@ namespace tesvik10
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(931, 262);
+            this.tabPage6.Size = new System.Drawing.Size(1047, 316);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "SGK İşyeri Bilgileri";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -398,12 +407,23 @@ namespace tesvik10
             this.cmbson.Size = new System.Drawing.Size(97, 23);
             this.cmbson.TabIndex = 46;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(914, 93);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(143, 124);
+            this.listBox1.TabIndex = 47;
+            // 
             // ebildirge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(963, 531);
+            this.ClientSize = new System.Drawing.Size(1079, 615);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.btnaphlistele);
             this.Controls.Add(this.cmbson);
             this.Controls.Add(this.cmbilk);
             this.Controls.Add(this.btnthkkal);
@@ -418,6 +438,7 @@ namespace tesvik10
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpbxfirmabilgileri);
             this.Name = "ebildirge";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ebildirge";
             this.Load += new System.EventHandler(this.ebildirge_Load);
             this.grpbxfirmabilgileri.ResumeLayout(false);
@@ -468,5 +489,6 @@ namespace tesvik10
         private System.Windows.Forms.Button btnaphlistele;
         private System.Windows.Forms.ComboBox cmbilk;
         private System.Windows.Forms.ComboBox cmbson;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

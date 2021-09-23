@@ -67,7 +67,7 @@ namespace PdfOku
                 sqlCommand2.ExecuteNonQuery();
                 foreach (IptalKayitlar iptalKayitlar in SilinecekIptalKayitlar)
                 {
-                    sqlCommand2.CommandText = "Select ID From HizmetListesi Where SgkNo='" + iptalKayitlar.SgkNo1 + "' And Year=" + (object)iptalKayitlar.DonemYil1 + " And Month=" + (object)iptalKayitlar.DonemAy1 + " And Kanun_No='" + iptalKayitlar.KanunNo1 + "' And Mahiyet='ASIL' And CGun='" + iptalKayitlar.CGun1 + "' And GGun='" + iptalKayitlar.GGun + "' And Ucret='" + iptalKayitlar.Maas.ToString().Replace(',', '.') + "'";
+                    sqlCommand2.CommandText = "Select KurumID From HizmetListesi Where SgkNo='" + iptalKayitlar.SgkNo1 + "' And Year=" + (object)iptalKayitlar.DonemYil1 + " And Month=" + (object)iptalKayitlar.DonemAy1 + " And Kanun_No='" + iptalKayitlar.KanunNo1 + "' And Mahiyet='ASIL' And CGun='" + iptalKayitlar.CGun1 + "' And GGun='" + iptalKayitlar.GGun + "' And Ucret='" + iptalKayitlar.Maas.ToString().Replace(',', '.') + "'";
                     sqlCommand2.Connection = sqlConnection;
                     SQLiteDataReader sqlDataReader = sqlCommand2.ExecuteReader();
                     if (sqlDataReader.Read())
@@ -192,8 +192,8 @@ namespace PdfOku
 
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.ExecuteNonQuery();
-                    if (pdfHizmetListesi.Mahiyet == "IPTAL")
-                        KayitIptalListeEkle(Convert.ToInt32(pdfHizmetListesi.Donem.Split('/')[0].Trim()), Convert.ToInt32(pdfHizmetListesi.Donem.Split('/')[1].Trim()), pdfHizmetListesi.SgkNo, pdfHizmetListesi.KanunNo, pdfHizmetListesi.CGun, pdfHizmetListesi.GGun, pdfHizmetListesi.Ucret);
+                    if (pdfHizmetListesi.Mahiyet == "IPTAL")      //Convert.ToInt32(                                              //Convert.ToInt32
+                        KayitIptalListeEkle(pdfHizmetListesi.Donem.Split('/')[0].Trim().ToString(), pdfHizmetListesi.Donem.Split('/')[1].Trim().ToString(), pdfHizmetListesi.SgkNo, pdfHizmetListesi.KanunNo, pdfHizmetListesi.CGun, pdfHizmetListesi.GGun, pdfHizmetListesi.Ucret);
                     //---------------------------------------------------------------------------------------------------
                     
                     ++num1;
@@ -513,8 +513,8 @@ namespace PdfOku
         }
 
         private static void KayitIptalListeEkle(
-          int Yil,
-          int Ay,
+          string Yil,
+          string Ay,
           string SgkNo,
           string KanunNo,
           string CGun,

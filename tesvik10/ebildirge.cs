@@ -15,6 +15,7 @@ using System.Linq;
 using System.Data.SQLite;
 using PdfOku;
 using System.Configuration;
+using System.IO;
 
 namespace tesvik10
 {
@@ -26,7 +27,7 @@ namespace tesvik10
         }
 
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
-        
+        public IWebDriver driver { get; set; }
 
         public void verilerilistele(string veriler)
         {
@@ -50,14 +51,44 @@ namespace tesvik10
             dataGridView3.DataSource = ds.Tables[0];
             dataGridView3.Columns["Ucret"].DefaultCellStyle.Format = "N2";
             dataGridView3.Columns["Ikramiye"].DefaultCellStyle.Format = "N2";
-            dataGridView3.Columns["Ucret"].DefaultCellStyle.Alignment= DataGridViewContentAlignment.MiddleRight;
+            dataGridView3.Columns["Ucret"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView3.Columns["Ikramiye"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView3.AutoResizeColumns();
             dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+        public string sgkDonemSiraDuzenle()
+        {
+
+            DateTime dt = DateTime.Now;
+            return dt.ToString("yyyy") + "/" + dt.ToString("MM");
+        }
 
         private void ebildirge_Load(object sender, EventArgs e)
         {
+            baglan.Open();
+            SQLiteCommand Donem = new SQLiteCommand("select * from DonemBilgisi WHERE Donem <='" + sgkDonemSiraDuzenle() + "' ORDER BY Donem DESC", baglan);
+            SQLiteDataReader dnmdr = Donem.ExecuteReader();
+            int index = 1;
+            List<SgkDonemler> IlkDonemList = new List<SgkDonemler>();
+            List<SgkDonemler> SonDonemList = new List<SgkDonemler>();
+            while (dnmdr.Read())
+            {
+                IlkDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
+                SonDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
+                index++;
+            }
+            baglan.Close();
+
+            cmbilk.DataSource = IlkDonemList;
+            cmbilk.DisplayMember = "DisplayMember";
+            cmbilk.ValueMember = "ValueMember";
+
+            cmbson.DataSource = SonDonemList;
+            cmbson.DisplayMember = "DisplayMember";
+            cmbson.ValueMember = "ValueMember";
+
+
+
             baglan.Open();
             SQLiteCommand combobx = new SQLiteCommand("select * From Hizli_Firma_Kayit", baglan);//  where aktifpasif like'Aktif'
             SQLiteDataReader dr = combobx.ExecuteReader();
@@ -66,22 +97,14 @@ namespace tesvik10
                 comboBox1.Items.Add(dr[2]);
             }
             baglan.Close();
-            
-            baglan.Open();
-            SQLiteCommand Donem = new SQLiteCommand("Select * From DonemBilgisi", baglan);
-            SQLiteDataReader dnmdr = Donem.ExecuteReader();
-            while (dnmdr.Read())
-            {
-                cmbilk.Items.Add(dnmdr[3]);
-                cmbson.Items.Add(dnmdr[3]);
-            }
-       
         }
+
+
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             baglan.Open();
-            SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '"+comboBox1.Text.ToString()+"'", baglan);
+            SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '" + comboBox1.Text.ToString() + "'", baglan);
             SQLiteDataReader da = frm.ExecuteReader();
             while (da.Read())
             {
@@ -94,8 +117,8 @@ namespace tesvik10
             baglan.Close();
             int firmaid = Convert.ToInt32(lblfirmano.Text);
             verilerilistele("select subeid as ID,firmunvantam as FİRMA_UNVAN,subeunvan AS SUBE,sgkkullanici AS KULLANICI,sgkek AS EK,sgksistemsif AS SİSTEM_SİF,sgkisyerisif AS İSYERİ_SİF From sube_bilgileri where aktifpasif='Aktif' and firmaid='" + firmaid + "'");
-            
-            
+
+
         }
 
 
@@ -104,7 +127,7 @@ namespace tesvik10
             int secim = dataGridView1.SelectedCells[0].RowIndex;
             string subeid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
             string sgkkullanici = dataGridView1.Rows[secim].Cells[3].Value.ToString().Trim();
-            string sgkek= dataGridView1.Rows[secim].Cells[4].Value.ToString().Trim();
+            string sgkek = dataGridView1.Rows[secim].Cells[4].Value.ToString().Trim();
             string sgksistem = dataGridView1.Rows[secim].Cells[5].Value.ToString().Trim();
             string sgkisyeri = dataGridView1.Rows[secim].Cells[6].Value.ToString().Trim();
 
@@ -139,20 +162,40 @@ namespace tesvik10
             {
                 pictureBox1.Image = Bitmap.FromStream(stream);
             }
+
+        }
+
+        public void ebildv2Baglan(Object sender, EventArgs e)
+        {
+
         }
 
         private void btnthkkal_Click(object sender, EventArgs e)
         {
 
-            // IWebDriver driver = new ChromeDriver();
+            FileInfo fileinfo;
+            var pdfPath = Application.StartupPath + "Pdf\\";
+            foreach (string item in Directory.GetFiles(pdfPath))
+            {
+                fileinfo = new FileInfo(item);
+                if (fileinfo.Extension == ".pdf")
+                {
+                    fileinfo.Delete();
+                }
 
-            var pdfPath = Application.StartupPath+"Pdf\\";
+            }
             var driverPath = Application.StartupPath;
             var chromeOptions = new ChromeOptions();
+
+
             chromeOptions.AddUserProfilePreference("download.default_directory", pdfPath);
+            //11111111 -- CHROME BROWSER İN GİZLENMESİ İÇİN 
+            //chromeOptions.AddArgument("headless");
+            //chromeOptions.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 1);
+            //11111111
             chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
             chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
-            var driver = new ChromeDriver(driverPath, chromeOptions);
+            driver = new ChromeDriver(driverPath, chromeOptions);
 
             string v = txtebldv2guvenlik.Text.ToString().Trim();
             string klnc = lblsgkkullanici.Text.ToString().Trim();
@@ -162,7 +205,7 @@ namespace tesvik10
 
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=" + klnc + "&isyeri_kod=" + ek + "&password=" + sistem + "&isyeri_sifre=" + isyeri + "&isyeri_guvenlik=" + v + "");
 
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=2&hizmet_yil_ay_index_bitis=3");
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=" + cmbilk.SelectedValue.ToString() + "&hizmet_yil_ay_index_bitis=" + cmbson.SelectedValue.ToString() + "");
 
 
 
@@ -179,12 +222,12 @@ namespace tesvik10
 
             //indirilen tahakkuklar için data set oluşturuloyr
 
-
+            baglan.Open();
             for (int i = 3; i < (tahakkukadet.Count) + 1; i++)
             {
 
-                baglan.Open();
-                SQLiteCommand thklarial = new SQLiteCommand("INSERT INTO [ilktahakkukbilgi] (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
+
+                SQLiteCommand thklarial = new SQLiteCommand("INSERT INTO ilktahakkukbilgi (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
 
                 ReadOnlyCollection<IWebElement> donemay = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
 
@@ -200,39 +243,56 @@ namespace tesvik10
                 IWebElement pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
 
 
-
-                // thklarial.Parameters.AddWithValue("@hizmetay", (hizmetay.ToString().Trim().Substring(0,hizmetay+7);
-
-                //listBox1.Items.Add(donemay.First().Text).ToString();
-                //listBox1.Items.Add(hizmetay.First().Text).ToString();
-                //listBox1.Items.Add(belgeturu.First().Text).ToString();
-                //listBox1.Items.Add(belgemahiyeti.First().Text).ToString();
-                //listBox1.Items.Add(kanunno.First().Text).ToString();
-                //listBox1.Items.Add(calisan.First().Text).ToString();
-                //listBox1.Items.Add(gun.First().Text).ToString();
-                //listBox1.Items.Add(spek.First().Text).ToString();
-                //listBox1.Items.Add(pdf.Text).ToString();
-
                 thklarial.Parameters.AddWithValue("@firmaid", Convert.ToInt32(lblfirmano.Text.Trim()));
                 thklarial.Parameters.AddWithValue("@subeid", Convert.ToInt32(lblsubeid.Text.Trim()));
                 thklarial.Parameters.AddWithValue("@donmay", donemay.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@hizmetay", hizmetay.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@bturu", belgeturu.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@bmahiyet", belgemahiyeti.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@hizmetay", (object)hizmetay.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@bturu", (object)belgeturu.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@bmahiyet", (object)belgemahiyeti.First().Text.ToString().Trim());
                 thklarial.Parameters.AddWithValue("@kanunno", kanunno.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@calisan", calisan.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@gun", gun.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@calisan", (object)calisan.First().Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@gun", (object)gun.First().Text.ToString().Trim());
                 //string spekk = spek.ToString().Substring(0, spek.First().Text.ToString());
-                thklarial.Parameters.AddWithValue("@spk", spek.First().Text.ToString().Trim());
-                thklarial.Parameters.AddWithValue("@pdf", pdf.Text.ToString().Trim()); 
+                var split = spek.First().Text.ToString().Trim().Split(' ');
+                var tutar = Convert.ToDouble(split[0]); 
+                //tutar.First().Text.ToString().Split(' ')[0]);
+                thklarial.Parameters.AddWithValue("@spk", tutar);//Convert.ToDecimal(spek.First().Text.ToString().Split(' ')[0]));
+            thklarial.Parameters.AddWithValue("@pdf", (object)pdf.Text.ToString().Trim());
 
-                pdf.Click();
-                baglan.Close();
+                //38.700,52 TL
+                //16.788,89 TL---38700.52
+                //16788.89
+                //16.788,89 TL-- 38.700,52
+                //38.700,52 TL--38.700,52 TL 25 asd
+
+                try
+                {
+                    if ((pdf.Text.ToString().Trim()) == "H")
+                    {
+                        pdf.Click();
+                    }
+                    else
+                    {
+                        driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[13]/td[10]/div/a[2]")).Click();
+
+
+                        //*[@id="contentContainer"]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[2]/div/table/tbody/tr[12]/td[10]/div/a[2]  -2021/7
+                    }
+
+                }
+                catch (Exception)
+                {
+                    
+                    thklarial.Parameters.AddWithValue("@pdf", donemay.First().Text.ToString().Trim() + " / " + kanunno.First().Text.ToString().Trim() + " indirme başarısız");
+                    pdf.Click();
+                    // throw;
+                }
+                thklarial.ExecuteNonQuery();
 
             }
 
-            
-        
+            baglan.Close();
+
         }
 
 
@@ -240,7 +300,7 @@ namespace tesvik10
 
         private void tb6sgkisyeribilgi_Click(object sender, EventArgs e)
         {
-            if (lblsubeid.Text== "subeid")
+            if (lblsubeid.Text == "subeid")
             {
 
             }
@@ -265,5 +325,5 @@ namespace tesvik10
         }
 
     }
-    
+
 }
