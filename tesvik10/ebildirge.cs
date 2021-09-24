@@ -256,9 +256,27 @@ namespace tesvik10
                 }
                 
                 thklarial.ExecuteNonQuery();
-                tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
+                //progresbar ı dolduruyoruz. 
+                progressBar1.Maximum = tahakkukadet.Count;
+                progressBar1.Value = i;
             }
 
+            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
+
+
+            // HİZMET LİSTELERİ AÇILIYOR
+            //baglan.Open();
+            //int subeid = Convert.ToInt32(lblsubeid.Text);
+            
+            
+            SQLiteCommand hizmetlistesinisil = new SQLiteCommand("delete from HizmetListesi where subeid='" + subeid + "' ", baglan);
+            thklarisil.ExecuteNonQuery();
+            baglan.Close();
+            ReadPdf pdfOku = new ReadPdf();
+            pdfOku.DosyaOkumayaBasla();
+
+            
+            hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
             baglan.Close();
 
         }
@@ -282,14 +300,7 @@ namespace tesvik10
 
         private void btnaphlistele_Click(object sender, EventArgs e)
         {
-            baglan.Open();
-            int subeid = Convert.ToInt32(lblsubeid.Text);
-            SQLiteCommand thklarisil = new SQLiteCommand("delete from HizmetListesi where subeid='" + subeid + "' ", baglan);
-            thklarisil.ExecuteNonQuery();
-            baglan.Close();
-            ReadPdf pdfOku = new ReadPdf();
-            pdfOku.DosyaOkumayaBasla();
-            hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
