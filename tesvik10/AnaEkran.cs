@@ -17,7 +17,7 @@ namespace tesvik10
 
         private void btnfirmakayit_Click(object sender, EventArgs e)
         {
-            panel3.Controls.Clear();
+            //panel3.Controls.Clear();
             FirmaKayit firmakayit = new FirmaKayit();
             firmakayit.TopLevel = false;
             panel3.Controls.Add(firmakayit);//panele formu yükledik
@@ -31,7 +31,7 @@ namespace tesvik10
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel3.Controls.Clear();
+            //panel3.Controls.Clear();
             SubeKayit subekayit = new SubeKayit();
             subekayit.TopLevel = false;
             panel3.Controls.Add(subekayit);
@@ -40,6 +40,39 @@ namespace tesvik10
             subekayit.Dock = DockStyle.Fill;
             subekayit.BringToFront();
                 
+        }
+
+        private void btnParametre_Click(object sender, EventArgs e)
+        {
+            //panel3.Controls.Clear();
+            KanuniParametre kanuniparemetre = new KanuniParametre();
+            kanuniparemetre.TopLevel = false;
+            panel3.Controls.Add(kanuniparemetre);
+
+            kanuniparemetre.Show();
+            kanuniparemetre.Dock = DockStyle.Fill;
+            kanuniparemetre.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Programdan Çıkış Yapmak İstediğinize Eminmisiniz", "DİKKAT", MessageBoxButtons.YesNo);
+            if (dialog==DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ebildirge Ebildirge = new ebildirge();
+            Ebildirge.TopLevel = false;
+            panel3.Controls.Add(Ebildirge);
+
+            Ebildirge.Show();
+            Ebildirge.Dock = DockStyle.Fill;
+            Ebildirge.BringToFront();
         }
     }
 }

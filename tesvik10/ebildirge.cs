@@ -65,27 +65,32 @@ namespace tesvik10
 
         private void ebildirge_Load(object sender, EventArgs e)
         {
-            baglan.Open();
-            SQLiteCommand Donem = new SQLiteCommand("select * from DonemBilgisi WHERE Donem <='" + sgkDonemSiraDuzenle() + "' ORDER BY Donem DESC", baglan);
-            SQLiteDataReader dnmdr = Donem.ExecuteReader();
-            int index = 1;
-            List<SgkDonemler> IlkDonemList = new List<SgkDonemler>();
-            List<SgkDonemler> SonDonemList = new List<SgkDonemler>();
-            while (dnmdr.Read())
-            {
-                IlkDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
-                SonDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
-                index++;
-            }
-            baglan.Close();
 
-            cmbilk.DataSource = IlkDonemList;
-            cmbilk.DisplayMember = "DisplayMember";
-            cmbilk.ValueMember = "ValueMember";
 
-            cmbson.DataSource = SonDonemList;
-            cmbson.DisplayMember = "DisplayMember";
-            cmbson.ValueMember = "ValueMember";
+
+            // SQL DEN COMBOBOXUN DOLDURULMASI -- SGK NIN SİTESİNDEN YAPILACAĞ İÇİN ALT KISIMDA YER ALMIŞTIR. 
+            //baglan.Open();
+            //SQLiteCommand Donem = new SQLiteCommand("select * from DonemBilgisi WHERE Donem <='" + sgkDonemSiraDuzenle() + "' ORDER BY Donem DESC", baglan);
+            //SQLiteDataReader dnmdr = Donem.ExecuteReader();
+
+            //int index = 1;
+            //List<SgkDonemler> IlkDonemList = new List<SgkDonemler>();
+            //List<SgkDonemler> SonDonemList = new List<SgkDonemler>();
+            //while (dnmdr.Read())
+            //{
+            //    IlkDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
+            //    SonDonemList.Add(new SgkDonemler { DisplayMember = dnmdr[3].ToString(), ValueMember = index });
+            //    index++;
+            //}
+            //baglan.Close();
+
+            //cmbilk.DataSource = IlkDonemList;
+            //cmbilk.DisplayMember = "DisplayMember";
+            //cmbilk.ValueMember = "ValueMember";
+
+            //cmbson.DataSource = SonDonemList;
+            //cmbson.DisplayMember = "DisplayMember";
+            //cmbson.ValueMember = "ValueMember";
 
 
 
@@ -184,26 +189,6 @@ namespace tesvik10
                 }
 
             }
-            var driverPath = Application.StartupPath;
-            var chromeOptions = new ChromeOptions();
-
-
-            chromeOptions.AddUserProfilePreference("download.default_directory", pdfPath);
-            //11111111 -- CHROME BROWSER İN GİZLENMESİ İÇİN 
-            //chromeOptions.AddArgument("headless");
-            //chromeOptions.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 1);
-            //11111111
-            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
-            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
-            driver = new ChromeDriver(driverPath, chromeOptions);
-
-            string v = txtebldv2guvenlik.Text.ToString().Trim();
-            string klnc = lblsgkkullanici.Text.ToString().Trim();
-            string ek = lblek.Text.ToString().Trim();
-            string sistem = lblsistemsif.Text.ToString().Trim();
-            string isyeri = lblisyerisif.Text.ToString().Trim();
-
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=" + klnc + "&isyeri_kod=" + ek + "&password=" + sistem + "&isyeri_sifre=" + isyeri + "&isyeri_guvenlik=" + v + "");
 
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=" + cmbilk.SelectedValue.ToString() + "&hizmet_yil_ay_index_bitis=" + cmbson.SelectedValue.ToString() + "");
 
@@ -257,13 +242,9 @@ namespace tesvik10
                 var tutar = Convert.ToDouble(split[0]); 
                 //tutar.First().Text.ToString().Split(' ')[0]);
                 thklarial.Parameters.AddWithValue("@spk", tutar);//Convert.ToDecimal(spek.First().Text.ToString().Split(' ')[0]));
-            thklarial.Parameters.AddWithValue("@pdf", (object)pdf.Text.ToString().Trim());
+                thklarial.Parameters.AddWithValue("@pdf", (object)pdf.Text.ToString().Trim());
 
-                //38.700,52 TL
-                //16.788,89 TL---38700.52
-                //16788.89
-                //16.788,89 TL-- 38.700,52
-                //38.700,52 TL--38.700,52 TL 25 asd
+
 
                 if ((pdf.Text.ToString().Trim()) == "H")
                 {
@@ -275,7 +256,7 @@ namespace tesvik10
                 }
                 
                 thklarial.ExecuteNonQuery();
-
+                tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
             }
 
             baglan.Close();
@@ -311,6 +292,62 @@ namespace tesvik10
             hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var pdfPath = Application.StartupPath + "Pdf\\";
+            var driverPath = Application.StartupPath;
+            var chromeOptions = new ChromeOptions();
+
+            chromeOptions.AddUserProfilePreference("download.default_directory", pdfPath);
+            //11111111 -- CHROME BROWSER İN GİZLENMESİ İÇİN 
+            //chromeOptions.AddArgument("headless");
+            chromeOptions.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 1);
+            //11111111
+            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            driver = new ChromeDriver(driverPath, chromeOptions);
+
+            string v = txtebldv2guvenlik.Text.ToString().Trim();
+            string klnc = lblsgkkullanici.Text.ToString().Trim();
+            string ek = lblek.Text.ToString().Trim();
+            string sistem = lblsistemsif.Text.ToString().Trim();
+            string isyeri = lblisyerisif.Text.ToString().Trim();
+
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/login/kullaniciIlkKontrollerGiris.action?username=" + klnc + "&isyeri_kod=" + ek + "&password=" + sistem + "&isyeri_sifre=" + isyeri + "&isyeri_guvenlik=" + v + "");
+            //dönem bilgileri comboboxa alınıyor
+            //cmbilk.Items.Clear();
+            //cmbson.Items.Clear();
+
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemBilgileriniYukle");
+            ReadOnlyCollection<IWebElement> donemadet = driver.FindElements(By.XPath("//*[@id=\"tahakkukonaylanmisTahakkukDonemSecildi_hizmet_yil_ay_index\"]/option"));
+
+            List<SgkDonemler> IlkDonemList = new List<SgkDonemler>();
+            List<SgkDonemler> SonDonemList = new List<SgkDonemler>();
+            for (int i = 2; i < donemadet.Count; i++)
+            {
+                ReadOnlyCollection<IWebElement> tahakkuk = driver.FindElements(By.XPath("//*[@id=\"tahakkukonaylanmisTahakkukDonemSecildi_hizmet_yil_ay_index\"]/option[" + i + "]"));
+                IlkDonemList.Add(new SgkDonemler { DisplayMember = tahakkuk.First().Text.ToString().Trim(), ValueMember = i - 1 });
+                SonDonemList.Add(new SgkDonemler { DisplayMember = tahakkuk.First().Text.ToString().Trim(), ValueMember = i - 1 });
+            }
+
+            cmbilk.DataSource = IlkDonemList;
+            cmbilk.DisplayMember = "DisplayMember";
+            cmbilk.ValueMember = "ValueMember";
+
+            cmbson.DataSource = SonDonemList;
+            cmbson.DisplayMember = "DisplayMember";
+            cmbson.ValueMember = "ValueMember";
+
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/anasayfa");
+
+
+        }
+
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
+        }
     }
 
 }
