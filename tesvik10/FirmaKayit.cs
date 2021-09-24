@@ -290,6 +290,12 @@ namespace tesvik10
             }
             
         }
+
+        private void btnReferans_Click(object sender, EventArgs e)
+        {
+            Referanslar referanslar = new Referanslar();
+            referanslar.ShowDialog();
+        }
     }
 
 }

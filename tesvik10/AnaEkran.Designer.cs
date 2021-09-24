@@ -33,6 +33,7 @@ namespace tesvik10
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnParametre = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,12 +54,13 @@ namespace tesvik10
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.MenuText;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnParametre);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnfirmakayit);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1434, 77);
+            this.panel2.Size = new System.Drawing.Size(1371, 77);
             this.panel2.TabIndex = 3;
             // 
             // button1
@@ -80,8 +82,20 @@ namespace tesvik10
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 77);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1434, 682);
+            this.panel3.Size = new System.Drawing.Size(1371, 699);
             this.panel3.TabIndex = 4;
+            // 
+            // btnParametre
+            // 
+            this.btnParametre.BackColor = System.Drawing.Color.Teal;
+            this.btnParametre.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnParametre.ForeColor = System.Drawing.Color.Black;
+            this.btnParametre.Location = new System.Drawing.Point(410, 12);
+            this.btnParametre.Name = "btnParametre";
+            this.btnParametre.Size = new System.Drawing.Size(186, 53);
+            this.btnParametre.TabIndex = 3;
+            this.btnParametre.Text = "PARAMETRELER";
+            this.btnParametre.UseVisualStyleBackColor = false;
             // 
             // AnaEkran
             // 
@@ -90,7 +104,7 @@ namespace tesvik10
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(5, 10);
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1434, 759);
+            this.ClientSize = new System.Drawing.Size(1371, 776);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Name = "AnaEkran";
@@ -106,5 +120,6 @@ namespace tesvik10
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnParametre;
     }
 }

@@ -24,6 +24,7 @@ namespace tesvik10
             da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
         }
 
@@ -128,6 +129,16 @@ namespace tesvik10
                 verilerigetir("select referansid as ID,referansadsoyad as ADI_SOYADI,reffirmaunvan as FİRMA_UNVAN,refeposta AS EPOSTA,reftelefon as TELEFON,refadres as ADRES, refil as İL, refilce as İLCE,refnotlar1 as NOT1, refnotlar2 as NOTT from ReferansBilgileri");
                 tabloyutemizle();
             }
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            var dialog = MessageBox.Show("Yaptığınız Değişiklikleri Kaydetmeyi Unutmayınız. \n Form Kapatılacaktır Onaylıyormusuzun", "Dikkat",MessageBoxButtons.YesNo);
+            if (dialog ==DialogResult.Yes)
+            {
+                this.Close();
+            }
+
         }
     }
     

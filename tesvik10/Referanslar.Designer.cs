@@ -55,6 +55,7 @@ namespace tesvik10
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnsil = new System.Windows.Forms.Button();
             this.btnyeni = new System.Windows.Forms.Button();
+            this.btnKapat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,9 +235,9 @@ namespace tesvik10
             // 
             // rcbnot1
             // 
-            this.rcbnot1.Location = new System.Drawing.Point(433, 94);
+            this.rcbnot1.Location = new System.Drawing.Point(451, 88);
             this.rcbnot1.Name = "rcbnot1";
-            this.rcbnot1.Size = new System.Drawing.Size(233, 60);
+            this.rcbnot1.Size = new System.Drawing.Size(307, 89);
             this.rcbnot1.TabIndex = 8;
             this.rcbnot1.Text = "";
             // 
@@ -245,7 +246,7 @@ namespace tesvik10
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(352, 139);
+            this.label3.Location = new System.Drawing.Point(370, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 15);
             this.label3.TabIndex = 76;
@@ -253,9 +254,9 @@ namespace tesvik10
             // 
             // rcbnot2
             // 
-            this.rcbnot2.Location = new System.Drawing.Point(433, 156);
+            this.rcbnot2.Location = new System.Drawing.Point(451, 196);
             this.rcbnot2.Name = "rcbnot2";
-            this.rcbnot2.Size = new System.Drawing.Size(233, 65);
+            this.rcbnot2.Size = new System.Drawing.Size(307, 83);
             this.rcbnot2.TabIndex = 9;
             this.rcbnot2.Text = "";
             // 
@@ -264,7 +265,7 @@ namespace tesvik10
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(352, 206);
+            this.label4.Location = new System.Drawing.Point(370, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 15);
             this.label4.TabIndex = 78;
@@ -286,7 +287,7 @@ namespace tesvik10
             // 
             this.btnkaydet.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnkaydet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnkaydet.Location = new System.Drawing.Point(451, 240);
+            this.btnkaydet.Location = new System.Drawing.Point(796, 116);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(93, 37);
             this.btnkaydet.TabIndex = 81;
@@ -300,7 +301,7 @@ namespace tesvik10
             this.dataGridView1.Location = new System.Drawing.Point(8, 307);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(690, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(881, 234);
             this.dataGridView1.TabIndex = 82;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -308,7 +309,7 @@ namespace tesvik10
             // 
             this.btnsil.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnsil.Location = new System.Drawing.Point(550, 240);
+            this.btnsil.Location = new System.Drawing.Point(796, 162);
             this.btnsil.Name = "btnsil";
             this.btnsil.Size = new System.Drawing.Size(93, 37);
             this.btnsil.TabIndex = 83;
@@ -320,7 +321,7 @@ namespace tesvik10
             // 
             this.btnyeni.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnyeni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnyeni.Location = new System.Drawing.Point(352, 240);
+            this.btnyeni.Location = new System.Drawing.Point(796, 70);
             this.btnyeni.Name = "btnyeni";
             this.btnyeni.Size = new System.Drawing.Size(93, 37);
             this.btnyeni.TabIndex = 84;
@@ -328,12 +329,25 @@ namespace tesvik10
             this.btnyeni.UseVisualStyleBackColor = true;
             this.btnyeni.Click += new System.EventHandler(this.btnyeni_Click);
             // 
+            // btnKapat
+            // 
+            this.btnKapat.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnKapat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnKapat.Location = new System.Drawing.Point(796, 212);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(93, 37);
+            this.btnKapat.TabIndex = 85;
+            this.btnKapat.Text = "KAPAT";
+            this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
             // Referanslar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(710, 519);
+            this.ClientSize = new System.Drawing.Size(901, 562);
+            this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnyeni);
             this.Controls.Add(this.btnsil);
             this.Controls.Add(this.dataGridView1);
@@ -397,5 +411,6 @@ namespace tesvik10
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.Button btnyeni;
+        private System.Windows.Forms.Button btnKapat;
     }
 }
