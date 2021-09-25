@@ -25,8 +25,8 @@ namespace tesvik10
             da.Fill(ds);
             dataGirtAyrıntı.DataSource = ds.Tables[0];
             dataGirtAyrıntı.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGirtAyrıntı.Columns[6].DefaultCellStyle.Format = "#,#.##";
-            dataGirtAyrıntı.Columns[7].DefaultCellStyle.Format = "#,#.##";
+            dataGirtAyrıntı.Columns[6].DefaultCellStyle.Format = "n2";
+            dataGirtAyrıntı.Columns[7].DefaultCellStyle.Format = "n2";
             dataGirtAyrıntı.Columns[8].DefaultCellStyle.Format = "#,#.##";
             dataGirtAyrıntı.Columns[9].DefaultCellStyle.Format = "#,#.##";
             dataGirtAyrıntı.Columns[10].DefaultCellStyle.Format = "#,#.##";
@@ -131,35 +131,35 @@ namespace tesvik10
 
             detayLlistele("SELECT SgkNo as TcNo, Ad, Soyad, Kanun_No, Gun, Donem,Asg_Ucr_GV as AsgUcrGV, Asg_Ucr_Trk_icin_Matrah as Trkn_Mtrh, Agi_Minumum as AGİ, gvTerkin, dvTerkin from HizmetListesi where firmaid='" + firmaid + "' AND donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and  (Kanun_No like '00687' or Kanun_No like '01687' or Kanun_No like '17103' or Kanun_No like '27103')");//Year as YIL, Month as AY,
             //SUBE BAZLI TABLO 
-            double gvst = 0;
-            double dvst = 0;
+            double gvst = 0.00;
+            double dvst = 0.00;
             for (int i = 0; i < dataGritSubeOzet.Rows.Count; i++)
             {
                 gvst += Convert.ToDouble(dataGritSubeOzet.Rows[i].Cells["GV_TERKİN"].Value);
                 dvst += Convert.ToDouble(dataGritSubeOzet.Rows[i].Cells["DV_TERKİN"].Value);
             }
-            lblgvst.Text = gvst.ToString("0,0.00");
-            lbldvst.Text = dvst.ToString("0,0.00");
+            lblgvst.Text = gvst.ToString("n2");
+            lbldvst.Text = dvst.ToString("n2");
             //DONEMBAZLI LİSTE
-            int gvdn = 0;
-            int dvdn = 0;
+            double gvdn = 0.00;
+            double dvdn = 0.00;
             for (int i = 0; i < dataGritAyOzet.Rows.Count; i++)
             {
                 gvdn += Convert.ToInt32(dataGritAyOzet.Rows[i].Cells["GV_TERKİN"].Value);
                 dvdn += Convert.ToInt32(dataGritAyOzet.Rows[i].Cells["DV_TERKİN"].Value);
             }
-            lbldnmgv.Text = gvdn.ToString("0,0.00");
-            lbldnmdv.Text = dvdn.ToString("0,0.00");
+            lbldnmgv.Text = gvdn.ToString("n2");
+            lbldnmdv.Text = dvdn.ToString("n2");
             // DETAY  LİSTE
-            int gvdt = 0;
-            int dvdt = 0;
+            double gvdt = 0.00;
+            double dvdt = 0.00;
             for (int i = 0; i < dataGirtAyrıntı.Rows.Count; i++)
             {
                 gvdt += Convert.ToInt32(dataGirtAyrıntı.Rows[i].Cells["gvTerkin"].Value);
                 dvdt += Convert.ToInt32(dataGirtAyrıntı.Rows[i].Cells["dvTerkin"].Value);
             }
-            lbldetaygv.Text = gvdt.ToString("0,0.00");
-            lbldetaydv.Text = dvdt.ToString("0,0.00");
+            lbldetaygv.Text = gvdt.ToString("n2");
+            lbldetaydv.Text = dvdt.ToString("n2");
         }
 
 
