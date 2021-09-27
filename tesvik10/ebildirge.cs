@@ -367,6 +367,11 @@ namespace tesvik10
         {
             tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

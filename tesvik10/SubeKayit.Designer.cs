@@ -608,11 +608,11 @@ namespace tesvik10
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button4.Location = new System.Drawing.Point(807, 104);
+            this.button4.Location = new System.Drawing.Point(779, 104);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 45);
+            this.button4.Size = new System.Drawing.Size(128, 30);
             this.button4.TabIndex = 64;
-            this.button4.Text = "OTOMATİK DOLDUR";
+            this.button4.Text = "e-BİLDİRGE V1";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

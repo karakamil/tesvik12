@@ -111,55 +111,7 @@ namespace tesvik10
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            baglan.Open();
-            SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '" + comboBox1.Text.ToString() + "'", baglan);
-            SQLiteDataReader da = frm.ExecuteReader();
-            while (da.Read())
-            {
-                lblfirmano.Text = (da[0].ToString().Trim());
 
-            }
-            da.Close();
-            dataGirtAyrıntı.Columns.Clear();
-            baglan.Close();
-
-            int firmaid = Convert.ToInt32(lblfirmano.Text);
-
-            subeBazliListele("SELECT sb.subeid as ID,sb.subeunvan, sum(Asg_Ucr_GV) as AsgUcrGV, sum(Asg_Ucr_Trk_icin_Matrah) as Trkn_Matrah, sum(Agi_Minumum) as AGİ, sum(gvTerkin)AS GV_TERKİN, sum(dvTerkin) as DV_TERKİN from HizmetListesi as hl INNER JOIN sube_bilgileri as sb  on sb.subeid = hl.subeid where sb.firmaid = '" + firmaid + "'  AND hl.donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and (Kanun_No = '00687' or Kanun_No = '01687' or Kanun_No = '17103' or Kanun_No = '27103') group by sb.subeunvan");
-
-            donemBazliListele("SELECT Donem,  sum(gvTerkin)AS GV_TERKİN, sum(dvTerkin) as DV_TERKİN from HizmetListesi where firmaid='" + firmaid + "'  AND donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and  (Kanun_No = '00687' or Kanun_No = '01687' or Kanun_No = '17103' or Kanun_No = '27103') group by Donem");//sum(Asg_Ucr_GV) as AsgUcrGV, sum(Asg_Ucr_Trk_icin_Matrah) as Trkn_Matrah, sum(Agi_Minumum) as AGİ,
-
-            detayLlistele("SELECT SgkNo as TcNo, Ad, Soyad, Kanun_No, Gun, Donem,Asg_Ucr_GV as AsgUcrGV, Asg_Ucr_Trk_icin_Matrah as Trkn_Mtrh, Agi_Minumum as AGİ, gvTerkin, dvTerkin from HizmetListesi where firmaid='" + firmaid + "' AND donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and  (Kanun_No like '00687' or Kanun_No like '01687' or Kanun_No like '17103' or Kanun_No like '27103')");//Year as YIL, Month as AY,
-            //SUBE BAZLI TABLO 
-            double gvst = 0.00;
-            double dvst = 0.00;
-            for (int i = 0; i < dataGritSubeOzet.Rows.Count; i++)
-            {
-                gvst += Convert.ToDouble(dataGritSubeOzet.Rows[i].Cells["GV_TERKİN"].Value);
-                dvst += Convert.ToDouble(dataGritSubeOzet.Rows[i].Cells["DV_TERKİN"].Value);
-            }
-            lblgvst.Text = gvst.ToString("n2");
-            lbldvst.Text = dvst.ToString("n2");
-            //DONEMBAZLI LİSTE
-            double gvdn = 0.00;
-            double dvdn = 0.00;
-            for (int i = 0; i < dataGritAyOzet.Rows.Count; i++)
-            {
-                gvdn += Convert.ToInt32(dataGritAyOzet.Rows[i].Cells["GV_TERKİN"].Value);
-                dvdn += Convert.ToInt32(dataGritAyOzet.Rows[i].Cells["DV_TERKİN"].Value);
-            }
-            lbldnmgv.Text = gvdn.ToString("n2");
-            lbldnmdv.Text = dvdn.ToString("n2");
-            // DETAY  LİSTE
-            double gvdt = 0.00;
-            double dvdt = 0.00;
-            for (int i = 0; i < dataGirtAyrıntı.Rows.Count; i++)
-            {
-                gvdt += Convert.ToInt32(dataGirtAyrıntı.Rows[i].Cells["gvTerkin"].Value);
-                dvdt += Convert.ToInt32(dataGirtAyrıntı.Rows[i].Cells["dvTerkin"].Value);
-            }
-            lbldetaygv.Text = gvdt.ToString("n2");
-            lbldetaydv.Text = dvdt.ToString("n2");
         }
 
 
@@ -218,6 +170,70 @@ namespace tesvik10
             }
             lbldetaygv.Text = gvdt.ToString("0,0.00");
             lbldetaydv.Text = dvdt.ToString("0,0.00");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            baglan.Open();
+            SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '" + comboBox1.Text.ToString() + "'", baglan);
+            SQLiteDataReader da = frm.ExecuteReader();
+            while (da.Read())
+            {
+                lblfirmano.Text = (da[0].ToString().Trim());
+
+            }
+            da.Close();
+            dataGirtAyrıntı.Columns.Clear();
+            baglan.Close();
+
+            int firmaid = Convert.ToInt32(lblfirmano.Text);
+
+            subeBazliListele("SELECT sb.subeid as ID,sb.subeunvan, sum(Asg_Ucr_GV) as AsgUcrGV, sum(Asg_Ucr_Trk_icin_Matrah) as Trkn_Matrah, sum(Agi_Minumum) as AGİ, sum(gvTerkin)AS GV_TERKİN, sum(dvTerkin) as DV_TERKİN from HizmetListesi as hl INNER JOIN sube_bilgileri as sb  on sb.subeid = hl.subeid where sb.firmaid = '" + firmaid + "'  AND hl.donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and (Kanun_No = '00687' or Kanun_No = '01687' or Kanun_No = '17103' or Kanun_No = '27103') group by sb.subeunvan");
+
+            donemBazliListele("SELECT Donem,  sum(gvTerkin)AS GV_TERKİN, sum(dvTerkin) as DV_TERKİN from HizmetListesi where firmaid='" + firmaid + "'  AND donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and  (Kanun_No = '00687' or Kanun_No = '01687' or Kanun_No = '17103' or Kanun_No = '27103') group by Donem");//sum(Asg_Ucr_GV) as AsgUcrGV, sum(Asg_Ucr_Trk_icin_Matrah) as Trkn_Matrah, sum(Agi_Minumum) as AGİ,
+
+            detayLlistele("SELECT SgkNo as TcNo, Ad, Soyad, Kanun_No, Gun, Donem,Asg_Ucr_GV as AsgUcrGV, Asg_Ucr_Trk_icin_Matrah as Trkn_Mtrh, Agi_Minumum as AGİ, gvTerkin, dvTerkin from HizmetListesi where firmaid='" + firmaid + "' AND donem BETWEEN '" + cmbilk.Text + "' and '" + cmbson.Text + "' and  (Kanun_No like '00687' or Kanun_No like '01687' or Kanun_No like '17103' or Kanun_No like '27103')");//Year as YIL, Month as AY,
+            //SUBE BAZLI TABLO 
+            decimal gvst = 0.00M;
+            decimal dvst = 0.00M;
+            for (int i = 0; i < dataGritSubeOzet.Rows.Count; i++)
+            {
+                gvst += Convert.ToDecimal(dataGritSubeOzet.Rows[i].Cells["GV_TERKİN"].Value);
+                dvst += Convert.ToDecimal(dataGritSubeOzet.Rows[i].Cells["DV_TERKİN"].Value);
+            }
+            lblgvst.Text = gvst.ToString("n2");
+            lbldvst.Text = dvst.ToString("n2");
+            lblgeneltoplam.Text = (gvst + dvst).ToString("n2");
+
+
+            //DONEMBAZLI LİSTE
+            decimal gvdn = 0.00M;
+            decimal dvdn = 0.00M;
+            for (int i = 0; i < dataGritAyOzet.Rows.Count; i++)
+            {
+                gvdn += Convert.ToDecimal(dataGritAyOzet.Rows[i].Cells["GV_TERKİN"].Value);
+                dvdn += Convert.ToDecimal(dataGritAyOzet.Rows[i].Cells["DV_TERKİN"].Value);
+            }
+            lbldnmgv.Text = gvdn.ToString("n2");
+            lbldnmdv.Text = dvdn.ToString("n2");
+            // DETAY  LİSTE
+            decimal gvdt = 0.00M;
+            decimal dvdt = 0.00M;
+            for (int i = 0; i < dataGirtAyrıntı.Rows.Count; i++)
+            {
+                gvdt += Convert.ToDecimal(dataGirtAyrıntı.Rows[i].Cells["gvTerkin"].Value);
+                dvdt += Convert.ToDecimal(dataGirtAyrıntı.Rows[i].Cells["dvTerkin"].Value);
+            }
+            lbldetaygv.Text = gvdt.ToString("n2");
+            lbldetaydv.Text = dvdt.ToString("n2");
+
+
+
         }
     }
 }

@@ -51,6 +51,7 @@ namespace tesvik10
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtdonemfiltre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtasgdv = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@ namespace tesvik10
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtagitavan = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -76,6 +76,7 @@ namespace tesvik10
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.PapayaWhip;
             this.groupBox1.Controls.Add(this.btnYeni);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnKaytet);
@@ -94,7 +95,7 @@ namespace tesvik10
             this.groupBox1.Controls.Add(this.txtyilfiltre);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.txtdonemfiltre);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(12, 102);
             this.groupBox1.Name = "groupBox1";
@@ -281,9 +282,10 @@ namespace tesvik10
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -310,6 +312,7 @@ namespace tesvik10
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.PapayaWhip;
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.txtasgdv);
@@ -327,12 +330,26 @@ namespace tesvik10
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtagitavan);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(706, 102);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(605, 568);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "YILLARA GÖRE GV - DV - AGİ";
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button5.Location = new System.Drawing.Point(420, 500);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(166, 52);
+            this.button5.TabIndex = 88;
+            this.button5.Text = "KAPAT";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label14
             // 
@@ -370,9 +387,10 @@ namespace tesvik10
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -519,18 +537,6 @@ namespace tesvik10
             this.txtagitavan.TabIndex = 77;
             this.txtagitavan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtagitavan.Leave += new System.EventHandler(this.txtagitavan_Leave);
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button5.Location = new System.Drawing.Point(420, 500);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(166, 52);
-            this.button5.TabIndex = 88;
-            this.button5.Text = "KAPAT";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // KanuniParametre
             // 

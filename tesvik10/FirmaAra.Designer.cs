@@ -42,18 +42,20 @@ namespace tesvik10
             // 
             // btnrfrnsara
             // 
-            this.btnrfrnsara.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnrfrnsara.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnrfrnsara.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnrfrnsara.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnrfrnsara.ForeColor = System.Drawing.Color.Black;
             this.btnrfrnsara.Location = new System.Drawing.Point(418, 70);
             this.btnrfrnsara.Name = "btnrfrnsara";
             this.btnrfrnsara.Size = new System.Drawing.Size(137, 37);
             this.btnrfrnsara.TabIndex = 89;
             this.btnrfrnsara.Text = "ARA";
-            this.btnrfrnsara.UseVisualStyleBackColor = true;
+            this.btnrfrnsara.UseVisualStyleBackColor = false;
             this.btnrfrnsara.Click += new System.EventHandler(this.btnrfrnsara_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 120);
             this.dataGridView1.Name = "dataGridView1";
@@ -64,7 +66,7 @@ namespace tesvik10
             // 
             // txtunvan
             // 
-            this.txtunvan.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtunvan.BackColor = System.Drawing.Color.White;
             this.txtunvan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtunvan.Location = new System.Drawing.Point(163, 50);
             this.txtunvan.Name = "txtunvan";
@@ -74,17 +76,18 @@ namespace tesvik10
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(36, 58);
+            this.label11.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(30, 57);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 15);
+            this.label11.Size = new System.Drawing.Size(130, 16);
             this.label11.TabIndex = 87;
             this.label11.Text = "ÜNVANA GÖRE ARA";
             // 
             // txtreferans
             // 
-            this.txtreferans.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtreferans.BackColor = System.Drawing.Color.White;
             this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtreferans.Location = new System.Drawing.Point(163, 79);
             this.txtreferans.Name = "txtreferans";
@@ -94,11 +97,12 @@ namespace tesvik10
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 87);
+            this.label2.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 15);
+            this.label2.Size = new System.Drawing.Size(151, 16);
             this.label2.TabIndex = 86;
             this.label2.Text = "REFERANSA GÖRE ARA";
             // 
@@ -106,7 +110,7 @@ namespace tesvik10
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(233, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 22);
@@ -116,11 +120,12 @@ namespace tesvik10
             // lblid
             // 
             this.lblid.AutoSize = true;
-            this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblid.ForeColor = System.Drawing.Color.White;
-            this.lblid.Location = new System.Drawing.Point(36, 14);
+            this.lblid.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.lblid.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblid.ForeColor = System.Drawing.Color.Black;
+            this.lblid.Location = new System.Drawing.Point(12, 13);
             this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(17, 15);
+            this.lblid.Size = new System.Drawing.Size(18, 16);
             this.lblid.TabIndex = 90;
             this.lblid.Text = "id";
             // 
@@ -128,7 +133,7 @@ namespace tesvik10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(570, 450);
             this.Controls.Add(this.lblid);
             this.Controls.Add(this.btnrfrnsara);

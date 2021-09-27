@@ -29,7 +29,7 @@ namespace tesvik10
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@ namespace tesvik10
             this.txtebldv2guvenlik = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tb6sgkisyeribilgi.SuspendLayout();
@@ -76,11 +77,11 @@ namespace tesvik10
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 16);
+            this.label1.Size = new System.Drawing.Size(118, 18);
             this.label1.TabIndex = 35;
             this.label1.Text = "FİRMA SEÇİMİ";
             // 
@@ -88,7 +89,7 @@ namespace tesvik10
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 3);
+            this.comboBox1.Location = new System.Drawing.Point(172, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(411, 28);
             this.comboBox1.TabIndex = 36;
@@ -97,11 +98,11 @@ namespace tesvik10
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(929, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "TELEFON";
             // 
@@ -119,33 +120,33 @@ namespace tesvik10
             // lbltelefon
             // 
             this.lbltelefon.AutoSize = true;
-            this.lbltelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbltelefon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lbltelefon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbltelefon.ForeColor = System.Drawing.Color.Black;
             this.lbltelefon.Location = new System.Drawing.Point(1017, 22);
             this.lbltelefon.Name = "lbltelefon";
-            this.lbltelefon.Size = new System.Drawing.Size(11, 15);
+            this.lbltelefon.Size = new System.Drawing.Size(13, 16);
             this.lbltelefon.TabIndex = 27;
             this.lbltelefon.Text = "-";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(879, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 15);
+            this.label5.Size = new System.Drawing.Size(127, 16);
             this.label5.TabIndex = 20;
             this.label5.Text = "YETKİLİ AD SOYAD";
             // 
             // lblyetkiliadsoyad
             // 
             this.lblyetkiliadsoyad.AutoSize = true;
-            this.lblyetkiliadsoyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblyetkiliadsoyad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblyetkiliadsoyad.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblyetkiliadsoyad.ForeColor = System.Drawing.Color.Black;
             this.lblyetkiliadsoyad.Location = new System.Drawing.Point(1017, 4);
             this.lblyetkiliadsoyad.Name = "lblyetkiliadsoyad";
-            this.lblyetkiliadsoyad.Size = new System.Drawing.Size(11, 15);
+            this.lblyetkiliadsoyad.Size = new System.Drawing.Size(13, 16);
             this.lblyetkiliadsoyad.TabIndex = 26;
             this.lblyetkiliadsoyad.Text = "-";
             // 
@@ -161,6 +162,7 @@ namespace tesvik10
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(18, 48);
             this.dataGridView1.Name = "dataGridView1";
@@ -186,7 +188,7 @@ namespace tesvik10
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tabPage1.BackColor = System.Drawing.Color.NavajoWhite;
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.progressBar1);
             this.tabPage1.Controls.Add(this.label3);
@@ -207,11 +209,11 @@ namespace tesvik10
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1042, 12);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(825, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(205, 16);
+            this.label4.Size = new System.Drawing.Size(175, 16);
             this.label4.TabIndex = 50;
             this.label4.Text = "İNDİRİLEN HİZMET LİSTESİ ";
             // 
@@ -225,36 +227,36 @@ namespace tesvik10
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(262, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 16);
+            this.label3.Size = new System.Drawing.Size(103, 18);
             this.label3.TabIndex = 47;
             this.label3.Text = "SON DÖNEM";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(26, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 16);
+            this.label2.Size = new System.Drawing.Size(95, 18);
             this.label2.TabIndex = 37;
             this.label2.Text = "İLK DÖNEM";
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Location = new System.Drawing.Point(8, 37);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
@@ -281,12 +283,12 @@ namespace tesvik10
             // 
             // btnthkkal
             // 
-            this.btnthkkal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnthkkal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnthkkal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnthkkal.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnthkkal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnthkkal.ForeColor = System.Drawing.Color.Black;
             this.btnthkkal.Location = new System.Drawing.Point(498, 6);
             this.btnthkkal.Name = "btnthkkal";
-            this.btnthkkal.Size = new System.Drawing.Size(177, 27);
+            this.btnthkkal.Size = new System.Drawing.Size(137, 27);
             this.btnthkkal.TabIndex = 42;
             this.btnthkkal.Text = "TAHAKUKLARI AL";
             this.btnthkkal.UseVisualStyleBackColor = false;
@@ -409,8 +411,9 @@ namespace tesvik10
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.lblfirmano);
             this.panel1.Controls.Add(this.lbltelefon);
@@ -426,9 +429,9 @@ namespace tesvik10
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(810, 93);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 28);
@@ -437,11 +440,24 @@ namespace tesvik10
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(1242, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 27);
+            this.button2.TabIndex = 51;
+            this.button2.Text = "ÇIKIŞ";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ebildirge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1350, 688);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -508,5 +524,6 @@ namespace tesvik10
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }
