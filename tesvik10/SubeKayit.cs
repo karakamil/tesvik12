@@ -265,18 +265,18 @@ namespace tesvik10
             string ek = txtek.Text.ToString().Trim();
             string sistem = txtsistem.Text.ToString().Trim();
             string isyeri = txtsgkisyeri.Text.ToString().Trim();
-            string guvenlik = txtGuvenlik.Text.ToString().Trim();
+           // string guvenlik = txtGuvenlik.Text.ToString().Trim();
 
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap?j_username="+klnc+"&isyeri_kod="+ek+"&j_password="+sistem+"&isyeri_sifre="+isyeri+"&isyeri_guvenlik="+v+"&btnSubmit=Giri%FE");
 
 
 
-            driver.FindElementByName("j_username").SendKeys (klnc);
-            driver.FindElementByName("isyeri_kod").SendKeys(ek);
-            driver.FindElementByName("j_password").SendKeys(sistem);
-            driver.FindElementByName("isyeri_sifre").SendKeys(isyeri);
-            driver.FindElementByName("isyeri_guvenlik").SendKeys(guvenlik);
-            driver.FindElementByName("btnSubmit").Click();
+            //driver.FindElementByName("j_username").SendKeys (klnc);
+            //driver.FindElementByName("isyeri_kod").SendKeys(ek);
+            //driver.FindElementByName("j_password").SendKeys(sistem);
+            //driver.FindElementByName("isyeri_sifre").SendKeys(isyeri);
+            //driver.FindElementByName("isyeri_guvenlik").SendKeys(guvenlik);
+            //driver.FindElementByName("btnSubmit").Click();
 
 
 

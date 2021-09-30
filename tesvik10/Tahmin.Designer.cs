@@ -59,9 +59,12 @@ namespace tesvik10
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnsubeexcel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblgeneltoplam = new System.Windows.Forms.Label();
+            this.btndonemexcel = new System.Windows.Forms.Button();
+            this.btndetayexel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGritSubeOzet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGritAyOzet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGirtAyrıntı)).BeginInit();
@@ -71,11 +74,11 @@ namespace tesvik10
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(46, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 16);
+            this.label1.Size = new System.Drawing.Size(96, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "FİRMA SEÇİMİ";
             // 
@@ -92,16 +95,17 @@ namespace tesvik10
             // lblfirmano
             // 
             this.lblfirmano.AutoSize = true;
-            this.lblfirmano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblfirmano.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblfirmano.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblfirmano.ForeColor = System.Drawing.Color.Black;
             this.lblfirmano.Location = new System.Drawing.Point(12, 11);
             this.lblfirmano.Name = "lblfirmano";
-            this.lblfirmano.Size = new System.Drawing.Size(11, 15);
+            this.lblfirmano.Size = new System.Drawing.Size(13, 16);
             this.lblfirmano.TabIndex = 30;
             this.lblfirmano.Text = "-";
             // 
             // dataGritSubeOzet
             // 
+            this.dataGritSubeOzet.BackgroundColor = System.Drawing.Color.White;
             this.dataGritSubeOzet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGritSubeOzet.Location = new System.Drawing.Point(389, 72);
             this.dataGritSubeOzet.Name = "dataGritSubeOzet";
@@ -112,6 +116,7 @@ namespace tesvik10
             // 
             // dataGritAyOzet
             // 
+            this.dataGritAyOzet.BackgroundColor = System.Drawing.Color.White;
             this.dataGritAyOzet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGritAyOzet.Location = new System.Drawing.Point(12, 72);
             this.dataGritAyOzet.Name = "dataGritAyOzet";
@@ -122,6 +127,7 @@ namespace tesvik10
             // 
             // dataGirtAyrıntı
             // 
+            this.dataGirtAyrıntı.BackgroundColor = System.Drawing.Color.White;
             this.dataGirtAyrıntı.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGirtAyrıntı.Location = new System.Drawing.Point(389, 243);
             this.dataGirtAyrıntı.Name = "dataGirtAyrıntı";
@@ -132,154 +138,154 @@ namespace tesvik10
             // lblsubeid
             // 
             this.lblsubeid.AutoSize = true;
-            this.lblsubeid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblsubeid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblsubeid.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblsubeid.ForeColor = System.Drawing.Color.Black;
             this.lblsubeid.Location = new System.Drawing.Point(12, 25);
             this.lblsubeid.Name = "lblsubeid";
-            this.lblsubeid.Size = new System.Drawing.Size(11, 15);
+            this.lblsubeid.Size = new System.Drawing.Size(13, 16);
             this.lblsubeid.TabIndex = 37;
             this.lblsubeid.Text = "-";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(402, 197);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 15);
+            this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "TERKİN GV TOPLAM";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(10, 635);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 15);
+            this.label3.Size = new System.Drawing.Size(148, 16);
             this.label3.TabIndex = 46;
             this.label3.Text = "DÖNEM BAZLI TOPLAM";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(576, 636);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 15);
+            this.label4.Size = new System.Drawing.Size(146, 16);
             this.label4.TabIndex = 47;
             this.label4.Text = "DETAY BAZLI TOPLAM";
             // 
             // lblgvst
             // 
             this.lblgvst.AutoSize = true;
-            this.lblgvst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblgvst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblgvst.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblgvst.ForeColor = System.Drawing.Color.Black;
             this.lblgvst.Location = new System.Drawing.Point(575, 197);
             this.lblgvst.Name = "lblgvst";
-            this.lblgvst.Size = new System.Drawing.Size(12, 15);
+            this.lblgvst.Size = new System.Drawing.Size(13, 16);
             this.lblgvst.TabIndex = 48;
             this.lblgvst.Text = "-";
             // 
             // lbldnmgv
             // 
             this.lbldnmgv.AutoSize = true;
-            this.lbldnmgv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbldnmgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbldnmgv.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbldnmgv.ForeColor = System.Drawing.Color.Black;
             this.lbldnmgv.Location = new System.Drawing.Point(205, 647);
             this.lbldnmgv.Name = "lbldnmgv";
-            this.lbldnmgv.Size = new System.Drawing.Size(11, 13);
+            this.lbldnmgv.Size = new System.Drawing.Size(13, 16);
             this.lbldnmgv.TabIndex = 49;
             this.lbldnmgv.Text = "-";
             // 
             // lbldetaygv
             // 
             this.lbldetaygv.AutoSize = true;
-            this.lbldetaygv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbldetaygv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbldetaygv.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbldetaygv.ForeColor = System.Drawing.Color.Black;
             this.lbldetaygv.Location = new System.Drawing.Point(887, 636);
             this.lbldetaygv.Name = "lbldetaygv";
-            this.lbldetaygv.Size = new System.Drawing.Size(12, 15);
+            this.lbldetaygv.Size = new System.Drawing.Size(13, 16);
             this.lbldetaygv.TabIndex = 50;
             this.lbldetaygv.Text = "-";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Lime;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Maroon;
             this.label6.Location = new System.Drawing.Point(389, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 15);
+            this.label6.Size = new System.Drawing.Size(128, 16);
             this.label6.TabIndex = 52;
             this.label6.Text = "ŞUBE BAZLI RAPOR";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.Lime;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Maroon;
             this.label7.Location = new System.Drawing.Point(14, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 15);
+            this.label7.Size = new System.Drawing.Size(141, 16);
             this.label7.TabIndex = 53;
             this.label7.Text = "DÖNEM BAZLI RAPOR";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.Lime;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.Maroon;
             this.label8.Location = new System.Drawing.Point(392, 225);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 15);
+            this.label8.Size = new System.Drawing.Size(121, 16);
             this.label8.TabIndex = 54;
             this.label8.Text = "AYRINTILI RAPOR";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(672, 197);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 15);
+            this.label9.Size = new System.Drawing.Size(129, 16);
             this.label9.TabIndex = 56;
             this.label9.Text = "TERKİN DV TOPLAM";
             // 
             // lbldvst
             // 
             this.lbldvst.AutoSize = true;
-            this.lbldvst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbldvst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbldvst.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbldvst.ForeColor = System.Drawing.Color.Black;
             this.lbldvst.Location = new System.Drawing.Point(847, 197);
             this.lbldvst.Name = "lbldvst";
-            this.lbldvst.Size = new System.Drawing.Size(12, 15);
+            this.lbldvst.Size = new System.Drawing.Size(13, 16);
             this.lbldvst.TabIndex = 57;
             this.lbldvst.Text = "-";
             // 
             // lbldnmdv
             // 
             this.lbldnmdv.AutoSize = true;
-            this.lbldnmdv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbldnmdv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbldnmdv.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbldnmdv.ForeColor = System.Drawing.Color.Black;
             this.lbldnmdv.Location = new System.Drawing.Point(318, 647);
             this.lbldnmdv.Name = "lbldnmdv";
-            this.lbldnmdv.Size = new System.Drawing.Size(11, 13);
+            this.lbldnmdv.Size = new System.Drawing.Size(13, 16);
             this.lbldnmdv.TabIndex = 58;
             this.lbldnmdv.Text = "-";
             // 
             // lbldetaydv
             // 
             this.lbldetaydv.AutoSize = true;
-            this.lbldetaydv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbldetaydv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbldetaydv.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbldetaydv.ForeColor = System.Drawing.Color.Black;
             this.lbldetaydv.Location = new System.Drawing.Point(1103, 636);
             this.lbldetaydv.Name = "lbldetaydv";
-            this.lbldetaydv.Size = new System.Drawing.Size(12, 15);
+            this.lbldetaydv.Size = new System.Drawing.Size(13, 16);
             this.lbldetaydv.TabIndex = 59;
             this.lbldetaydv.Text = "-";
             // 
@@ -302,83 +308,83 @@ namespace tesvik10
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(561, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 15);
+            this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 62;
             this.label5.Text = "İlk Dönem";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(561, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 15);
+            this.label10.Size = new System.Drawing.Size(79, 16);
             this.label10.TabIndex = 63;
             this.label10.Text = "Son Dönem";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(786, 636);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 15);
+            this.label11.Size = new System.Drawing.Size(72, 16);
             this.label11.TabIndex = 64;
             this.label11.Text = "GV TERKİN";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(995, 636);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 15);
+            this.label12.Size = new System.Drawing.Size(73, 16);
             this.label12.TabIndex = 65;
             this.label12.Text = "DV TERKİN";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.Color.Yellow;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(939, 197);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(116, 15);
+            this.label13.Size = new System.Drawing.Size(107, 16);
             this.label13.TabIndex = 66;
             this.label13.Text = "TOPLAM TERKİN";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(293, 626);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 13);
+            this.label14.Size = new System.Drawing.Size(73, 16);
             this.label14.TabIndex = 68;
             this.label14.Text = "DV TERKİN";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(173, 626);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 13);
+            this.label15.Size = new System.Drawing.Size(72, 16);
             this.label15.TabIndex = 67;
             this.label15.Text = "GV TERKİN";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblfirmano);
@@ -390,16 +396,30 @@ namespace tesvik10
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblsubeid);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1363, 51);
             this.panel1.TabIndex = 69;
             // 
+            // btnsubeexcel
+            // 
+            this.btnsubeexcel.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnsubeexcel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsubeexcel.ForeColor = System.Drawing.Color.Black;
+            this.btnsubeexcel.Location = new System.Drawing.Point(1021, 72);
+            this.btnsubeexcel.Name = "btnsubeexcel";
+            this.btnsubeexcel.Size = new System.Drawing.Size(308, 28);
+            this.btnsubeexcel.TabIndex = 66;
+            this.btnsubeexcel.Text = "ŞUBE RAPORU EXCEL";
+            this.btnsubeexcel.UseVisualStyleBackColor = false;
+            this.btnsubeexcel.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(1225, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 38);
@@ -410,9 +430,9 @@ namespace tesvik10
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(774, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 38);
@@ -424,20 +444,49 @@ namespace tesvik10
             // lblgeneltoplam
             // 
             this.lblgeneltoplam.AutoSize = true;
-            this.lblgeneltoplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblgeneltoplam.ForeColor = System.Drawing.Color.Yellow;
+            this.lblgeneltoplam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblgeneltoplam.ForeColor = System.Drawing.Color.Black;
             this.lblgeneltoplam.Location = new System.Drawing.Point(1100, 197);
             this.lblgeneltoplam.Name = "lblgeneltoplam";
-            this.lblgeneltoplam.Size = new System.Drawing.Size(12, 15);
+            this.lblgeneltoplam.Size = new System.Drawing.Size(13, 16);
             this.lblgeneltoplam.TabIndex = 70;
             this.lblgeneltoplam.Text = "-";
+            // 
+            // btndonemexcel
+            // 
+            this.btndonemexcel.BackColor = System.Drawing.Color.Gainsboro;
+            this.btndonemexcel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btndonemexcel.ForeColor = System.Drawing.Color.Black;
+            this.btndonemexcel.Location = new System.Drawing.Point(1021, 106);
+            this.btndonemexcel.Name = "btndonemexcel";
+            this.btndonemexcel.Size = new System.Drawing.Size(308, 28);
+            this.btndonemexcel.TabIndex = 71;
+            this.btndonemexcel.Text = "DÖNEM RAPORU EXCEL";
+            this.btndonemexcel.UseVisualStyleBackColor = false;
+            this.btndonemexcel.Click += new System.EventHandler(this.btndonemexcel_Click);
+            // 
+            // btndetayexel
+            // 
+            this.btndetayexel.BackColor = System.Drawing.Color.Gainsboro;
+            this.btndetayexel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btndetayexel.ForeColor = System.Drawing.Color.Black;
+            this.btndetayexel.Location = new System.Drawing.Point(1021, 140);
+            this.btndetayexel.Name = "btndetayexel";
+            this.btndetayexel.Size = new System.Drawing.Size(308, 28);
+            this.btndetayexel.TabIndex = 72;
+            this.btndetayexel.Text = "DETAY RAPORU EXCEL";
+            this.btndetayexel.UseVisualStyleBackColor = false;
+            this.btndetayexel.Click += new System.EventHandler(this.btndetayexel_Click);
             // 
             // Tahmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1363, 672);
+            this.Controls.Add(this.btndetayexel);
+            this.Controls.Add(this.btndonemexcel);
+            this.Controls.Add(this.btnsubeexcel);
             this.Controls.Add(this.lblgeneltoplam);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label14);
@@ -509,5 +558,8 @@ namespace tesvik10
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblgeneltoplam;
+        private System.Windows.Forms.Button btnsubeexcel;
+        private System.Windows.Forms.Button btndonemexcel;
+        private System.Windows.Forms.Button btndetayexel;
     }
 }
