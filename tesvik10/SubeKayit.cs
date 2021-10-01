@@ -11,6 +11,8 @@ using OpenQA.Selenium.Chrome;
 using System.Net;
 using OpenQA.Selenium;
 using System.Collections.ObjectModel;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace tesvik10
 {
@@ -22,6 +24,9 @@ namespace tesvik10
         }
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
 
+        public IWebDriver v1driver1 { get; private set; }
+
+        // public IWebDriver driver { get; set; }
         public void verilerigoster(string veriler)
         {
             SQLiteDataAdapter da = new SQLiteDataAdapter(veriler,baglan);
@@ -252,34 +257,41 @@ namespace tesvik10
 
         private void button4_Click(object sender, EventArgs e)
         {           
-            var driverPath = Application.StartupPath;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
-            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
-            var driver = new ChromeDriver(driverPath, chromeOptions);
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+            //var driverPath = Application.StartupPath;
+            //var chromeOptions = new ChromeOptions();
+            //chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            //chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            //var v1driver1 = new ChromeDriver(driverPath, chromeOptions);
 
 
-            string v = txtGuvenlik.Text.ToString().Trim();
+            //v1driver1.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+            
+            
+            
+           // ebildirgeV1Guvenlik.v1GuvenlikImageUrl = v1driver1.Url;
+                EbildV1Guvenlik frmGuvenlik = new EbildV1Guvenlik();
+            frmGuvenlik.ShowDialog();
+            string v = v1guvenliksozcugu.v1guvenlik.ToString();
+
             string klnc = txtsgkkullanici.Text.ToString().Trim();
             string ek = txtek.Text.ToString().Trim();
             string sistem = txtsistem.Text.ToString().Trim();
             string isyeri = txtsgkisyeri.Text.ToString().Trim();
-           // string guvenlik = txtGuvenlik.Text.ToString().Trim();
+            // string guvenlik = txtGuvenlik.Text.ToString().Trim();
 
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap?j_username="+klnc+"&isyeri_kod="+ek+"&j_password="+sistem+"&isyeri_sifre="+isyeri+"&isyeri_guvenlik="+v+"&btnSubmit=Giri%FE");
-
-
-
-            //driver.FindElementByName("j_username").SendKeys (klnc);
-            //driver.FindElementByName("isyeri_kod").SendKeys(ek);
-            //driver.FindElementByName("j_password").SendKeys(sistem);
-            //driver.FindElementByName("isyeri_sifre").SendKeys(isyeri);
-            //driver.FindElementByName("isyeri_guvenlik").SendKeys(guvenlik);
-            //driver.FindElementByName("btnSubmit").Click();
+            v1driver1 = v1driver.v1driver1;
+            v1driver1.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap?j_username="+klnc+"&isyeri_kod="+ek+"&j_password="+sistem+"&isyeri_sifre="+isyeri+"&isyeri_guvenlik="+v+"&btnSubmit=Giri%FE");
 
 
 
+        //driver.FindElementByName("j_username").SendKeys (klnc);
+        //driver.FindElementByName("isyeri_kod").SendKeys(ek);
+        //driver.FindElementByName("j_password").SendKeys(sistem);
+        //driver.FindElementByName("isyeri_sifre").SendKeys(isyeri);
+        //driver.FindElementByName("isyeri_guvenlik").SendKeys(guvenlik);
+        //driver.FindElementByName("btnSubmit").Click();
+
+        
 
         }
 
@@ -290,33 +302,33 @@ namespace tesvik10
 
         public static void ebildv1()
         {
-            var driverPath = Application.StartupPath;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
-            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
-            var driver = new ChromeDriver(driverPath, chromeOptions);
-            driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
+            //var driverPath = Application.StartupPath;
+            //var chromeOptions = new ChromeOptions();
+            //chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            //chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            //var driver = new ChromeDriver(driverPath, chromeOptions);
+            //driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
            
-            var request = (driver.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img")));
+            //var request = (driver.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img")));
 
-            {
-            //    pictureBox1.Image = Bitmap.FromStream(stream);
-            }
+            //{
+            ////    pictureBox1.Image = Bitmap.FromStream(stream);
+            //}
             
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
-            
-            
-            var request = WebRequest.Create("https://ebildirge.sgk.gov.tr/WPEB/PG");
-            
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                pictureBox1.Image = Bitmap.FromStream(stream);
-            }
+
+
+
+            ////var request = WebRequest.Create("https://ebildirge.sgk.gov.tr/WPEB/PG");
+            //var request = (v1driver.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img")));
+            //using (var response = request.GetResponse())
+            //using (var stream = response.GetResponseStream())
+            //{
+            //    pictureBox1.Image = Bitmap.FromStream(stream);
+            //}
         }
 
         private void button1_Click_1(object sender, EventArgs e)

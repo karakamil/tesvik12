@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using OpenQA.Selenium;
 
 namespace tesvik10
 {
@@ -13,4 +14,17 @@ namespace tesvik10
         public static int firmid = 0;
  
     }
+    public static class v1guvenliksozcugu
+    {
+        public static string v1guvenlik = "";
+    }
+    public static class ebildirgeV1Guvenlik
+    {
+        public static string v1GuvenlikImageUrl = "";
+    }
+    public static class v1driver
+    {
+        public static IWebDriver v1driver1 { get; set; }
+    }
 }
+
