@@ -80,7 +80,7 @@ namespace tesvik10
             //}
 
             v1driver1.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/WPEB/amp/loginldap");
-            IWebElement img = v1driver1.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img")).
+            IWebElement img = v1driver1.FindElement(By.XPath("//*[@id=\"formA\"]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[2]/img"));
             var url = img.GetAttribute("src");
             WebClient downloader = new WebClient();
             v1driver1.GetScreenshot().SaveAsFile("url");
